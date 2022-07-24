@@ -2,10 +2,18 @@ import { useEffect, useState } from 'react';
 
 const useToken = user => {
     const[token,setToken] = useState('');
+    console.log(user);
     
     useEffect(()=>{
+        const name = user?.user?.displayName;
         const email = user?.user?.email;
-        const currentUser ={email:email};
+        const img = user?.user?.photoURL;
+        
+        const currentUser ={
+            name : name,
+            email:email,
+            img : img,
+        };
         if(email){
             fetch(`http://localhost:4000/user/${email}`,{
                 method : 'PUT',
@@ -17,10 +25,11 @@ const useToken = user => {
             .then(res=>res.json())
             .then(data=>{
                 console.log('data inside useToken',data);
-                const accessToken = data.token;
-                localStorage.setItem('accessToken',accessToken);
-                setToken(accessToken);
-            })
+            //     const accessToken = data.token;
+            //     localStorage.setItem('accessToken',accessToken);
+                setToken(user);
+            // 
+        })
         }
     },[user]);
     return [token];

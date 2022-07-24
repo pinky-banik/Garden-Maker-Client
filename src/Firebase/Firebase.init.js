@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC6Q75i8DxsNQqfq2Wvninb4K63AX9aHO0",
-  authDomain: "genius-car-mechanics-practise.firebaseapp.com",
-  projectId: "genius-car-mechanics-practise",
-  storageBucket: "genius-car-mechanics-practise.appspot.com",
-  messagingSenderId: "207942058326",
-  appId: "1:207942058326:web:7d46f378c2ac3254da96f7",
-  measurementId: "G-5TEBPDVDZN"
+  apiKey: "AIzaSyD6uCUchz5YYk5bMUIVI_5uDn-hktPq8ho",
+  authDomain: "garden-maker.firebaseapp.com",
+  projectId: "garden-maker",
+  storageBucket: "garden-maker.appspot.com",
+  messagingSenderId: "363978624143",
+  appId: "1:363978624143:web:3c827a88b29cd908c4f4fa",
+  measurementId: "G-JQL97G60Q7"
 };
 
 const app = initializeApp(firebaseConfig);
