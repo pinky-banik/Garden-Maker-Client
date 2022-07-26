@@ -16,6 +16,8 @@ import RequireAuth from './RequireAuth/RequireAuth';
 import RequireAdmin from './RequireAuth/RequireAdmin';
 import AddReview from './Components/Dashboard/AddReview';
 import AllReview from './Components/Dashboard/AllReview';
+import CreateBlog from './Components/Dashboard/CreateBlog';
+import ManageBlogs from './Components/Dashboard/ManageBlogs';
 function App() {
   const[sidebar,setSidebar] =useState(true);
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="allProducts" element={<RequireAdmin><AllProduct/></RequireAdmin>}></Route>
           <Route path="allUsers" element={<RequireAdmin><AllUsers/></RequireAdmin>}></Route>
           <Route path="allReview" element={<RequireAdmin><AllReview/></RequireAdmin>}></Route>
+          <Route path="createBlog" element={<RequireAdmin><CreateBlog/></RequireAdmin>}></Route>
+          <Route path="manageBlog" element={<RequireAdmin><ManageBlogs/></RequireAdmin>}></Route>
         </Route>
       </Routes>
       <ToastContainer />

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../Shared/Loading';
 import { toast } from 'react-toastify';
 import {RiDeleteBin2Fill} from  'react-icons/ri';
-import {FiEdit} from 'react-icons/fi';
-import UpdateProductModal from './UpdateProductModal';
 import {AiFillStar } from 'react-icons/ai';
 import {AiFillEye} from 'react-icons/ai';
 

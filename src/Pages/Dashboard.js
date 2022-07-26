@@ -4,6 +4,7 @@ import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import auth from './../Firebase/Firebase.init';
 import useAdmin from '../Hooks/useAdmin';
+import { AiOutlineHome } from 'react-icons/ai';
 
 const Dashboard = ({setSidebar}) => {
     setSidebar(false);
@@ -33,7 +34,7 @@ const Dashboard = ({setSidebar}) => {
             <label htmlFor="dashboard" className="drawer-overlay"></label> 
             <ul className="menu p-4 pt-5 overflow-y-auto w-80 bg-base-100 text-base-content ">
             {/* <!-- Sidebar content here --> */}
-            <li className='border-b-2'><Link to="/">Home</Link></li>
+            <li className='border-b-2'><Link to="/"><AiOutlineHome/>Home</Link></li>
             <li className='border-b-2'><Link to="/dashboard/addReview">Add Review</Link></li>
             
            
@@ -42,6 +43,8 @@ const Dashboard = ({setSidebar}) => {
                 <>
                 <li className='border-b-2'><Link to="/dashboard/allUsers">All Users</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allReview">All Reviews</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/createBlog">Create Blog</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/manageblog">Manage Blog</Link></li>
                 <li className='border-b-2'><Link to="/dashboard">Add product</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allProducts">All Products</Link></li>
                 </>

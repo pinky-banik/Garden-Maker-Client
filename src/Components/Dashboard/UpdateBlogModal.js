@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -5,11 +6,11 @@ import { catagory as catagorys }  from '../Shared/Catagory';
 import Loading from './../Shared/Loading';
 
 
-const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
+const UpdateBlogModal = ({data,openBooking,setBookingOpen}) => {
     const[loading,setLoading] = useState(false);
     
 
-    const {_id,img,details,name,price,catagory}  = data;
+    const {_id,img,details,title,date}  = data;
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const imgStorageKey ='e45298c57c6b915f179ec8d9543b8284';
     
@@ -36,33 +37,32 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
                 // send to your database 
             }        
         });
-        const updatedTools = {
-            name: data.name || name, 
-            price: data.price || price,
+        const updatedBlog = {
+            title: data.title || title, 
             details: data.details || details,
-            catagory: data.catagory || catagory,
+            date : data.date || date,
             img: imgUrl || img,
         }
-        await fetch(`http://localhost:4000/tools/${_id}`, {
+        await fetch(`http://localhost:4000/blog/${_id}`, {
             method: 'PUT',
             headers: {
                'content-type': 'application/json',
                 // authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify(updatedTools)
+            body: JSON.stringify(updatedBlog)
         })
         .then(res =>res.json())
         .then(data=>{
             console.log(data);
             if(data.modifiedCount > 0){
-              toast.success("Product Updated Successfully");
+              toast.success("Blog Updated Successfully");
               setLoading(false);
               reset();
               setBookingOpen(false);
 
             }
             else{
-              toast.error("Product Updating Unsuccessful");
+              toast.error("Blog Updating Unsuccessful");
             }
            
           })
@@ -80,33 +80,34 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
             <label htmlFor="updateModal" className="btn btn-primary btn-sm btn-circle absolute right-2 top-2">✕</label>
             <div className='flex justify-center items-center'>
             <div>
-            <h2 className="text-2xl text-primary">Update This Product</h2>
+            <h2 className="text-2xl text-primary">Update This Blog</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-control w-full max-w-xs">
+
+                    <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Update Name</span>
+                        <span className="label-text">Update Title</span>
                     </label>
                     <input
                         type="text"
-                        placeholder={name}
+                        placeholder={title}
                         className="input input-bordered w-full max-w-xs focus:outline-none"
                         {...register("name")}
                     />
                     
                     </div>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Update $Price</span>
-                        </label>
-                        <input
-                            
-                            type="number"
-                            placeholder={price}
-                            className="input input-bordered w-full max-w-xs focus:outline-none"
-                            {...register("price")}
-                        />
-                        
+                    <label className="label">
+                        <span className="label-text">Update Date ({date})</span>
+                    </label>
+                    <input
+                        type="date"
+                        placeholder={date}
+                        className="input input-bordered w-full max-w-xs focus:outline-none p-3"
+                        {...register("date")}
+                    />
+                    
                     </div>
+                    
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Update Details</span>
@@ -115,29 +116,14 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
                             
                             type="text"
                             placeholder={details}
-                            className="input input-bordered w-full max-w-xs focus:outline-none  h-20"
+                            className="input input-bordered w-full max-w-xs focus:outline-none overflow-y-scroll h-56"
                             {...register("details")}
                         />
                     </div>
 
                         
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Update Catagory({catagory})</span>
-                        </label>
-                        <select {...register('catagory')} 
-                        
-                        className="select input-bordered w-full max-w-xs focus:outline-none cursor-pointer">
-                            <option className='bg-gray-200 py-5' disabled value={catagory}>{catagory}</option>
-                            {
-                                catagorys.map((cata) => <option className='cursor-pointer'
-                                    key={cata.id}
-                                    value={cata.name}
-                                >{cata.name}</option>)
-                            }
-                        </select>
-                    </div>
+                    
 
                     <div className="form-control w-full max-w-xs">
                                 <label className="label">
@@ -145,7 +131,7 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
                                 </label>
                                 <div className="avatar">
                                 <div className="mask mask-squircle w-24 h-24 mx-auto">
-                                    <img src={img} alt={name} />
+                                    <img src={img} alt={title} />
                                 </div>
                                 </div>
                                 <input
@@ -169,4 +155,4 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
     );
 };
 
-export default UpdateProductModal;
+export default UpdateBlogModal;

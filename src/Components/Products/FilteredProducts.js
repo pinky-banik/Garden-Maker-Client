@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 
 
-const FilteredProducts = ({filter}) => {
+const FilteredProducts = () => {
     const {menuFilter} = useParams();
     console.log(menuFilter);
     const[filteredProducts,setFilteredProducts] = useState([]);
+    const[loading,setLoading] = useState(true);
 
+    
     const navigate = useNavigate();
     
     useEffect(()=>{
         fetch(`http://localhost:4000/tools/${menuFilter}`)
         .then(res=>res.json())
-        .then(data=>setFilteredProducts(data));
+        .then(data=>{
+          setFilteredProducts(data);
+          setLoading(false);    
+        });
     },[menuFilter]);
 
     const handleProduct = name =>{
@@ -24,6 +30,10 @@ const FilteredProducts = ({filter}) => {
     // setFilter(cata);
     // navigate(`/filteredProduct/${cata}`);
     // }
+    if(loading){
+      return <Loading/>
+    }
+
 
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-auto'>

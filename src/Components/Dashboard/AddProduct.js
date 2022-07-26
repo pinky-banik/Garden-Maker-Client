@@ -4,14 +4,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { catagory } from '../Shared/Catagory';
 
-// export const catagory=[
-//     "Fruit Scissors",
-//     "Pruning Shears",
-//     "Pruning Saws",
-//     "Telescopic Tree Pruner",
-//     "Garden Rakes",
-//     "Small Hand Tools"
-// ];
 
 const AddProduct = () => {
     const [loading,setLoading] = useState(false);

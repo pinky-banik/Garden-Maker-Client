@@ -28,7 +28,7 @@ const Products = () => {
                 </ul>
                 </div>
                 <div className='mx-auto'>
-                    <FilteredProducts filter={filter}/>
+                    <FilteredProducts/>
                 </div>
             </div>
         </div>
