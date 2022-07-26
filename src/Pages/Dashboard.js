@@ -21,9 +21,8 @@ const Dashboard = ({setSidebar}) => {
     return (
         <div className="drawer drawer-mobile pt-14">
         <input id="dashboard" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col h-screen">
+        <div className="drawer-content flex flex-col h-screen bg-gray-100">
             {/* <!-- Page content here --> */}
-            <h2 className='text-3xl text-accent text-center pt-10'>Welcome to your dashboard</h2>
             <div className='p-10'>
             <Outlet/>
             </div>
@@ -36,11 +35,13 @@ const Dashboard = ({setSidebar}) => {
             {/* <!-- Sidebar content here --> */}
             <li className='border-b-2'><Link to="/">Home</Link></li>
             <li className='border-b-2'><Link to="/dashboard/addReview">Add Review</Link></li>
+            
            
             {
                 admin &&
                 <>
                 <li className='border-b-2'><Link to="/dashboard/allUsers">All Users</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/allReview">All Reviews</Link></li>
                 <li className='border-b-2'><Link to="/dashboard">Add product</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allProducts">All Products</Link></li>
                 </>

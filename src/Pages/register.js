@@ -43,12 +43,12 @@ const Register = () => {
 
     /**
      * 3 ways to store images
-     * 1. use third party storage //free open public storage is ok for practise project..but.not for real world websites
+     * 1. use third party storage //free open public storage is ok htmlFor practise project..but.not htmlFor real world websites
      * 2.Your own storage in your own server(file system)
      * 3. Database :mongodb //we are using  mongodb free.. so the verifing, sizing, or validate images is much tricky than email or password
      * 
-     * THere are some systems for doing it like:--
-     * 1.YUP: to validate file :  Search : Yup file validation for react hook form
+     * THere are some systems htmlFor doing it like:--
+     * 1.YUP: to validate file :  Search : Yup file validation htmlFor react hook form
      * 
      * But now we will use third party storage like imgbb
     */

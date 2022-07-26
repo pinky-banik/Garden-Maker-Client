@@ -1,13 +1,16 @@
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
-import loader from '../../assets/gif/gardener.gif';
-const Navbar = ({sidebar}) => {
+import { catagory } from './Catagory';
+import Loading from './Loading';
+const Navbar = ({sidebar,menuFilter,setmenuFilter}) => {
   const[user, loading] = useAuthState(auth);
   const image = user?.photoURL;
+  console.log(image);
   const navigate = useNavigate();
+
 
 
   const handleSignOut = () =>{
@@ -16,16 +19,13 @@ const Navbar = ({sidebar}) => {
     navigate('/');
   }
     if (loading ) {
-      return <div className='flex h-screen justify-center items-center'><img  src={loader} alt="" /></div>
+      return <Loading/>
     }
 
   const menuItemslg = 
   <>
         <li className='px-2 focus:bg-acent'><Link to = "/">Home</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/about">About</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/products">Products</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/reviews">Reviews</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/contact">Contact Us</Link></li>
+        <li className='px-2 focus:bg-acent'><Link to ={`/filteredProduct/${catagory[0].name}`}>Products</Link></li>
         {
           user?.uid ?
           
@@ -78,10 +78,7 @@ const Navbar = ({sidebar}) => {
         </div>
        }
         <li className='px-2 focus:bg-acent'><Link to = "/">Home</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/about">About</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/products">Products</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/reviews">Reviews</Link></li>
-        <li className='px-2 focus:bg-acent'><Link to = "/contact">Contact Us</Link></li>  
+        <li className='px-2 focus:bg-acent'><Link to ={`/filteredProduct/${catagory[0].name}`}>Products</Link></li>
 
             
           {
@@ -110,7 +107,7 @@ const Navbar = ({sidebar}) => {
         <Link to='/' className="normal-case text-xl ">Garden Maker</Link>
       </div>
       {/* large device */}
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-end lg:flex hidden">
         <ul className="menu menu-horizontal p-0 ">
           {menuItemslg} 
         </ul>

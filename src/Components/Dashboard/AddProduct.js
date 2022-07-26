@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import Loading from '../Shared/Loading';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { catagory } from '../Shared/Catagory';
 
-export const catagory=[
-    "Fruit Scissors",
-    "Pruning Shears",
-    "Pruning Saws",
-    "Telescopic Tree Pruner",
-    "Garden Rakes",
-    "Small Hand Tools"
-];
+// export const catagory=[
+//     "Fruit Scissors",
+//     "Pruning Shears",
+//     "Pruning Saws",
+//     "Telescopic Tree Pruner",
+//     "Garden Rakes",
+//     "Small Hand Tools"
+// ];
 
 const AddProduct = () => {
     const [loading,setLoading] = useState(false);
@@ -143,9 +144,9 @@ const AddProduct = () => {
                     <select {...register('catagory')} className="select input-bordered w-full max-w-xs focus:outline-none">
                         {
                             catagory.map((cata) => <option
-                                key={cata}
-                                value={cata}
-                            >{cata}</option>)
+                                key={cata.id}
+                                value={cata.name}
+                            >{cata.name}</option>)
                         }
                     </select>
                 </div>

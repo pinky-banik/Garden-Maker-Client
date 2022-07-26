@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { catagory as catagorys }  from './AddProduct';
+import { catagory as catagorys }  from '../Shared/Catagory';
 import Loading from './../Shared/Loading';
 
 
@@ -133,9 +133,9 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
                             <option className='bg-gray-200 py-5' disabled value={catagory}>{catagory}</option>
                             {
                                 catagorys.map((cata) => <option className='cursor-pointer'
-                                    key={cata}
-                                    value={cata}
-                                >{cata}</option>)
+                                    key={cata.id}
+                                    value={cata.name}
+                                >{cata.name}</option>)
                             }
                         </select>
                     </div>
