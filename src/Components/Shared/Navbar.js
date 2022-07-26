@@ -26,6 +26,7 @@ const Navbar = ({sidebar,menuFilter,setmenuFilter}) => {
   <>
         <li className='px-2 focus:bg-acent'><Link to = "/">Home</Link></li>
         <li className='px-2 focus:bg-acent'><Link to ={`/product-catagory/${catagory[0].name}`}>Products</Link></li>
+        <li className='px-2 focus:bg-acent'><Link to ="/blogs">Blogs</Link></li>
         {
           user?.uid ?
           
@@ -79,7 +80,7 @@ const Navbar = ({sidebar,menuFilter,setmenuFilter}) => {
        }
         <li className='px-2 focus:bg-acent'><Link to = "/">Home</Link></li>
         <li className='px-2 focus:bg-acent'><Link to ={`/product-catagory/${catagory[0].name}`}>Products</Link></li>
-
+        <li className='px-2 focus:bg-acent'><Link to ="/blogs">Blogs</Link></li>
             
           {
            user?.uid  ? 

@@ -18,6 +18,8 @@ import AddReview from './Components/Dashboard/AddReview';
 import AllReview from './Components/Dashboard/AllReview';
 import CreateBlog from './Components/Dashboard/CreateBlog';
 import ManageBlogs from './Components/Dashboard/ManageBlogs';
+import Blogs from './Pages/Blogs';
+import BlogDetails from './Pages/BlogDetails';
 function App() {
   const[sidebar,setSidebar] =useState(true);
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path='/products' element={<Products/>}/>
         <Route path='/product-catagory/:menuFilter' element={<Products/>}/>
         <Route path='/productDetails/:filter' element={<ProductDetails/>}/>
+        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/blogDetails/:blogId' element={<BlogDetails/>}/>
         <Route path="/dashboard" element={<RequireAuth><Dashboard setSidebar={setSidebar}/></RequireAuth>} >
           <Route index element={<AddProduct/>}></Route>
           <Route path="addReview" element={<AddReview/>}></Route>
