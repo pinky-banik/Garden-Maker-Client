@@ -9,7 +9,7 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
     const[loading,setLoading] = useState(false);
     
 
-    const {_id,img,details,name,price,catagory}  = data;
+    const {_id,img,details,name,catagory,minOrderQuantity,pricePerUnit,availableQuantity}  = data;
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const imgStorageKey ='e45298c57c6b915f179ec8d9543b8284';
     
@@ -38,7 +38,9 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
         });
         const updatedTools = {
             name: data.name || name, 
-            price: data.price || price,
+            pricePerUnit : data.pricePerUnit || pricePerUnit,
+            minOrderQuantity : data.minOrderQuantity ||minOrderQuantity,
+            availableQuantity :data.availableQuantity || availableQuantity,
             details: data.details || details,
             catagory: data.catagory || catagory,
             img: imgUrl || img,
@@ -53,7 +55,7 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
         })
         .then(res =>res.json())
         .then(data=>{
-            console.log(data);
+            // console.log(data);
             if(data.modifiedCount > 0){
               toast.success("Product Updated Successfully");
               setLoading(false);
@@ -95,18 +97,39 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
                     
                     </div>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Update $Price</span>
-                        </label>
-                        <input
-                            
-                            type="number"
-                            placeholder={price}
-                            className="input input-bordered w-full max-w-xs focus:outline-none"
-                            {...register("price")}
-                        />
-                        
-                    </div>
+                    <label className="label">
+                        <span className="label-text">$Price per unit</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder={pricePerUnit}
+                        className="input input-bordered w-full max-w-xs focus:outline-none"
+                        {...register("pricePerUnit")}
+                    />
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Minimum Order Quantity</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder={minOrderQuantity}
+                        className="input input-bordered w-full max-w-xs focus:outline-none"
+                        {...register("minOrderQuantity")}
+                    />
+                    
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Available Quanitity</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder={availableQuantity}
+                        className="input input-bordered w-full max-w-xs focus:outline-none"
+                        {...register("availableQuantity")}
+                    />
+                </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Update Details</span>

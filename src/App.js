@@ -19,7 +19,9 @@ import AllReview from './Components/Dashboard/AllReview';
 import CreateBlog from './Components/Dashboard/CreateBlog';
 import ManageBlogs from './Components/Dashboard/ManageBlogs';
 import Blogs from './Pages/Blogs';
-import BlogDetails from './Pages/BlogDetails';
+import BlogDetails from './Components/Blog/BlogDetails';
+import MyOrders from './Components/Dashboard/MyOrders';
+import ManageOrders from './Components/Dashboard/ManageOrders';
 function App() {
   const[sidebar,setSidebar] =useState(true);
   return (
@@ -31,11 +33,13 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/product-catagory/:menuFilter' element={<Products/>}/>
-        <Route path='/productDetails/:filter' element={<ProductDetails/>}/>
+        <Route path='/productDetails/:filter' element={<RequireAuth><ProductDetails/></RequireAuth>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/blogDetails/:blogId' element={<BlogDetails/>}/>
         <Route path="/dashboard" element={<RequireAuth><Dashboard setSidebar={setSidebar}/></RequireAuth>} >
           <Route index element={<AddProduct/>}></Route>
+          <Route path="myOrders" element={<MyOrders/>}></Route>
+          <Route path="manageOrders" element={<RequireAdmin><ManageOrders/></RequireAdmin>}></Route>
           <Route path="addReview" element={<AddReview/>}></Route>
           <Route path="addProduct" element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
           <Route path="allProducts" element={<RequireAdmin><AllProduct/></RequireAdmin>}></Route>

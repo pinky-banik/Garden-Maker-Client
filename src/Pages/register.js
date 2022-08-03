@@ -69,7 +69,7 @@ const Register = () => {
              if(result.success){
                img= result.data.url;
             }
-            console.log(result);
+            // console.log(result);
         });
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name ,photoURL:img});
@@ -87,7 +87,7 @@ const Register = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log('data inside useToken',data);
+            // console.log('data inside useToken',data);
             
         //     const accessToken = data.token;
         //     localStorage.setItem('accessToken',accessToken);

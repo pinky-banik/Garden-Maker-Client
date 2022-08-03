@@ -35,7 +35,9 @@ const AddProduct = () => {
         });
         const tools = {
             name: data.name,
-            price: data.price,
+            pricePerUnit: data.pricePerUnit,
+            minOrderQuantity :data.minOrderQuantity,
+            availableQuantity : data.availableQuantity,
             details: data.details,
             catagory: data.catagory,
             img: img
@@ -64,7 +66,7 @@ const AddProduct = () => {
     
     
     return (
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center pb-20'>
             <div>
             <h2 className="text-2xl text-primary">Add a New Product</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -90,21 +92,59 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">$Price</span>
+                        <span className="label-text">$Price per unit</span>
                     </label>
                     <input
                         type="number"
-                        placeholder="price"
+                        placeholder="price per unit"
                         className="input input-bordered w-full max-w-xs focus:outline-none"
-                        {...register("price", {
+                        {...register("pricePerUnit", {
                             required: {
                                 value: true,
-                                message: 'Price is Required'
+                                message: 'Price per unit is Required'
                             }
                         })}
                     />
                     <label className="label">
-                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500 ">{errors.name.message}</span>}
+                        {errors.pricePerUnit?.type === 'required' && <span className="label-text-alt text-red-500 ">{errors.pricePerUnit.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Minimum Order Quantity</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder="Minimum Order Quantity"
+                        className="input input-bordered w-full max-w-xs focus:outline-none"
+                        {...register("minOrderQuantity", {
+                            required: {
+                                value: true,
+                                message: 'minimum order quanitity is Required'
+                            }
+                        })}
+                    />
+                    <label className="label">
+                        {errors.minOrderQuantity?.type === 'required' && <span className="label-text-alt text-red-500 ">{errors.minOrderQuantity.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Available Quanitity</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder="Available Quantity"
+                        className="input input-bordered w-full max-w-xs focus:outline-none"
+                        {...register("availableQuantity", {
+                            required: {
+                                value: true,
+                                message: 'Available quanitity is Required'
+                            }
+                        })}
+                    />
+                    <label className="label">
+                        {errors.availableQuantity?.type === 'required' && <span className="label-text-alt text-red-500 ">{errors.availableQuantity.message}</span>}
                     </label>
                 </div>
                 <div className="form-control w-full max-w-xs">
@@ -135,8 +175,8 @@ const AddProduct = () => {
                     </label>
                     <select {...register('catagory')} className="select input-bordered w-full max-w-xs focus:outline-none">
                         {
-                            catagory.map((cata) => <option
-                                key={cata.id}
+                            catagory.map((cata,index) => <option
+                                key={index}
                                 value={cata.name}
                             >{cata.name}</option>)
                         }
@@ -149,7 +189,11 @@ const AddProduct = () => {
                             </label>
                             <input
                                 type="file"
-                                className="p-3 border-2 rounded-xl w-full max-w-xs focus:outline-none"
+                                className="p-3 border-2 bg-white rounded-xl w-full max-w-xs focus:outline-none text-sm text-gray-500
+                                file:mr-5 file:py-3 file:px-5
+                                file:rounded-full
+                                file:text-md file:font-semibold  file:bg-accent file:text-primary fil file:bg-opacity-40 file:border-accent
+                                hover:file:cursor-pointer"
                                 {...register("image", {
                                     required: {
                                         value: true,

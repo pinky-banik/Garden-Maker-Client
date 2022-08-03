@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const useToken = user => {
     const[token,setToken] = useState('');
-    console.log(user);
+    // console.log(user);
     
     useEffect(()=>{
         const name = user?.user?.displayName;
@@ -24,7 +24,7 @@ const useToken = user => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log('data inside useToken',data);
+                // console.log('data inside useToken',data);
             //     const accessToken = data.token;
             //     localStorage.setItem('accessToken',accessToken);
                 setToken(user);

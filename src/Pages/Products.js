@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { catagory } from '../Components/Shared/Catagory';
 import FilteredProducts from '../Components/Products/FilteredProducts';
+import Footer from '../Components/Shared/Footer';
 
 const Products = () => {
     const[filter,setFilter] = useState(catagory[0]);
@@ -15,8 +16,9 @@ const Products = () => {
     }
 
     return (
-        <div className='pt-20'>
-            <div className='mx-5 lg:flex'>
+        <div>
+            <div className='pt-20 '>
+            <div className='mx-5 lg:flex lg:min-h-screen'>
                 <div className='menu'>
                 <ul className="menu bg-base-100 w-56">
                     {
@@ -31,6 +33,9 @@ const Products = () => {
                     <FilteredProducts/>
                 </div>
             </div>
+            
+        </div>
+        <Footer/>
         </div>
     );
 };

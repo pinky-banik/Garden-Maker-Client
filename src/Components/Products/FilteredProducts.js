@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 
 const FilteredProducts = () => {
     const {menuFilter} = useParams();
-    console.log(menuFilter);
+    // console.log(menuFilter);
     const[filteredProducts,setFilteredProducts] = useState([]);
     const[loading,setLoading] = useState(true);
 
@@ -41,11 +41,12 @@ const FilteredProducts = () => {
                         filteredProducts?.map(product=>
                         <div key={product?._id} className="card   bg-base-100 shadow-xl m-5">
                         <figure className="px-10 pt-10">
-                          <img  src={product.img} alt="Shoes" className="rounded-xl h-56 w-56 object-top object-cover " />
+                          <img  src={product.img} alt={product.name} className="rounded-xl h-56 w-56 object-top object-cover " />
                         </figure>
                         <div className="card-body items-center text-center">
                           <h2 className="card-title">{product.name}</h2>
                           <p>{product.details.length > 20 ? product.details.slice(0,20)  : product.details }</p>
+                          {/* <p>${product.price}</p> */}
                           <div className="card-actions">
                             <button onClick={()=>handleProduct(product.name)} className="btn btn-primary">learn more</button>
                           </div>

@@ -35,12 +35,15 @@ const Dashboard = ({setSidebar}) => {
             <ul className="menu p-4 pt-5 overflow-y-auto w-80 bg-base-100 text-base-content ">
             {/* <!-- Sidebar content here --> */}
             <li className='border-b-2'><Link to="/"><AiOutlineHome/>Home</Link></li>
+            <li className='border-b-2'><Link to="/dashboard/myOrders">My Orders</Link></li>
             <li className='border-b-2'><Link to="/dashboard/addReview">Add Review</Link></li>
+            <li className='border-b-2'><Link to="/dashboard/myOrders">Add Review</Link></li>
             
            
             {
                 admin &&
                 <>
+                <li className='border-b-2'><Link to="/dashboard/manageOrders">Manage Orders</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allUsers">All Users</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allReview">All Reviews</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/createBlog">Create Blog</Link></li>

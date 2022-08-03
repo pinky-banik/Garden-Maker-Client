@@ -6,7 +6,7 @@ import auth from './../../Firebase/Firebase.init';
 
 const AddReview = () => {
     const [user] = useAuthState(auth);
-    console.log(user.photoURL);
+    // console.log(user.photoURL);
     const [loading,setLoading] = useState(false);
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();

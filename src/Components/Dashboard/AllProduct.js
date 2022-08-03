@@ -30,13 +30,13 @@ const AllProduct = () => {
       setBookingOpen(true)
       }
 
-    const handleDelete = async name =>{
-      await fetch(`http://localhost:4000/tools/${name}`,{
+    const handleDelete = async id =>{
+      await fetch(`http://localhost:4000/tools/${id}`,{
         method:'DELETE',
       })
       .then(res=>res.json())
       .then(data=>{
-        console.log(data);
+        // console.log(data);
         if(data.deletedCount > 0){
           toast.success("Product deleted Successfully");
         }
@@ -56,7 +56,9 @@ const AllProduct = () => {
       <tr>
         <th>image</th>
         <th>Name</th>
-        <th>Price</th>
+        <th>Price Per Unit</th>
+        <th>Minimum Order</th>
+        <th>Available</th>
         <th>Catagory</th>
         <th>Delete</th>
         <th>Update</th>
@@ -79,11 +81,17 @@ const AllProduct = () => {
           {tool.name}
         </td>
         <td>
-          {tool.price}
+          {tool.pricePerUnit}
+        </td>
+        <td>
+          {tool.minOrderQuantity}
+        </td>
+        <td>
+          {tool.availableQuantity}
         </td>
         <td>{tool.catagory}</td>
         <th>
-          <button onClick={()=>handleDelete(tool.name)} className="text-red-500 text-2xl"><RiDeleteBin2Fill/></button>
+          <button onClick={()=>handleDelete(tool._id)} className="text-red-500 text-2xl"><RiDeleteBin2Fill/></button>
         </th>
         <th>
         <label onClick={()=> handleId(tool)} htmlFor="updateModal" className="text-blue-500 text-2xl"><FiEdit/></label>
