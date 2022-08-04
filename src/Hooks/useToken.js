@@ -15,7 +15,7 @@ const useToken = user => {
             img : img,
         };
         if(email){
-            fetch(`http://localhost:4000/user/${email}`,{
+            fetch(`https://fathomless-coast-84439.herokuapp.com/user/${email}`,{
                 method : 'PUT',
                 headers:{
                     'content-type' :'application/json'

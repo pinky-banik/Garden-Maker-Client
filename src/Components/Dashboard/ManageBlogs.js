@@ -17,7 +17,7 @@ const ManageBlogs = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch("http://localhost:4000/blog")
+        fetch("https://fathomless-coast-84439.herokuapp.com/blog")
         .then(res=>res.json())
         .then(data=>setBlogs(data));
         setLoading(false);
@@ -35,7 +35,7 @@ const ManageBlogs = () => {
       }
 
     const handleDelete = async id =>{
-      await fetch(`http://localhost:4000/blog/${id}`,{
+      await fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${id}`,{
         method:'DELETE',
       })
       .then(res=>res.json())

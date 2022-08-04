@@ -12,7 +12,7 @@ const MyOrders = () => {
 
  
     useEffect(()=>{
-        fetch(`http://localhost:4000/orders/${email}`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/orders/${email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrders(data);
@@ -24,7 +24,7 @@ const MyOrders = () => {
 
     const handleDelete = id =>{
         
-        const url = `http://localhost:4000/orders/${id}`;
+        const url = `https://fathomless-coast-84439.herokuapp.com/orders/${id}`;
         
         Swal.fire({
           icon: "warning",

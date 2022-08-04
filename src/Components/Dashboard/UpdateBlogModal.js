@@ -43,7 +43,7 @@ const UpdateBlogModal = ({data,openBooking,setBookingOpen}) => {
             date : data.date || date,
             img: imgUrl || img,
         }
-        await fetch(`http://localhost:4000/blog/${_id}`, {
+        await fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${_id}`, {
             method: 'PUT',
             headers: {
                'content-type': 'application/json',

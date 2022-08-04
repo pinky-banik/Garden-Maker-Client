@@ -14,7 +14,7 @@ const AllUsers = () => {
 
 
     useEffect(()=>{
-        fetch("http://localhost:4000/user")
+        fetch("https://fathomless-coast-84439.herokuapp.com/user")
         .then(res=>res.json())
         .then(data=>setUsers(data));
         setLoading(false);
@@ -32,7 +32,7 @@ const AllUsers = () => {
     //   }
 
     const handleDelete = async id =>{
-      await fetch(`http://localhost:4000/user/${id}`,{
+      await fetch(`https://fathomless-coast-84439.herokuapp.com/user/${id}`,{
         method:'DELETE',
       })
       .then(res=>res.json())
@@ -47,7 +47,7 @@ const AllUsers = () => {
     }
     
     const handleMakeAdmin = email =>{
-      fetch(`http://localhost:4000/user/admin/${email}`,{
+      fetch(`https://fathomless-coast-84439.herokuapp.com/user/admin/${email}`,{
           method:'PUT',
       }).then(res=>res.json())
       .then(data =>{

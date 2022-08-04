@@ -8,7 +8,7 @@ import Loading from './Loading';
 const Navbar = ({sidebar,menuFilter,setmenuFilter}) => {
   const[user, loading] = useAuthState(auth);
   const image = user?.photoURL;
-  console.log(image);
+  // console.log(image);
   const navigate = useNavigate();
 
 

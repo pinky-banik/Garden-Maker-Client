@@ -42,7 +42,7 @@ const AddProduct = () => {
             catagory: data.catagory,
             img: img
         }
-        await fetch('http://localhost:4000/tools', {
+        await fetch('https://fathomless-coast-84439.herokuapp.com/tools', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

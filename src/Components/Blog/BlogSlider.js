@@ -23,7 +23,7 @@ const BlogSlider = () => {
     const navigate = useNavigate();
     
     useEffect(()=>{
-        fetch(`http://localhost:4000/blog`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/blog`)
         .then(res=>res.json())
         .then(data=>{
           setBlogs(data);   

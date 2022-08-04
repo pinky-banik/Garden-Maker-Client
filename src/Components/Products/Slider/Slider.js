@@ -32,7 +32,7 @@ const Slider = ({catagory}) => {
     const navigate = useNavigate();
     
     useEffect(()=>{
-        fetch(`http://localhost:4000/tools/${catagory}`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/tools/${catagory}`)
         .then(res=>res.json())
         .then(data=>{
           setFilteredProducts(data);

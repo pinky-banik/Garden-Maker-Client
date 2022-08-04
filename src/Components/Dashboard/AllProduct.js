@@ -13,7 +13,7 @@ const AllProduct = () => {
     const [openBooking, setBookingOpen] = useState(false);
 
     useEffect(()=>{
-        fetch("http://localhost:4000/tools")
+        fetch("https://fathomless-coast-84439.herokuapp.com/tools")
         .then(res=>res.json())
         .then(data=>setTools(data));
         setLoading(false);
@@ -31,7 +31,7 @@ const AllProduct = () => {
       }
 
     const handleDelete = async id =>{
-      await fetch(`http://localhost:4000/tools/${id}`,{
+      await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/${id}`,{
         method:'DELETE',
       })
       .then(res=>res.json())

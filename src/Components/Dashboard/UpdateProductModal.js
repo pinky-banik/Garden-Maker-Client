@@ -45,7 +45,7 @@ const UpdateProductModal = ({data,openBooking,setBookingOpen}) => {
             catagory: data.catagory || catagory,
             img: imgUrl || img,
         }
-        await fetch(`http://localhost:4000/tools/${_id}`, {
+        await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/${_id}`, {
             method: 'PUT',
             headers: {
                'content-type': 'application/json',

@@ -7,19 +7,19 @@ const ManageOrders = () => {
 
  
     useEffect(()=>{
-        fetch(`http://localhost:4000/orders`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/orders`)
         .then(res=>res.json())
         .then(data=>{
             setOrders(data);
             console.log(data);
         } 
         );
-    },[]);
+    },[orders]);
 
 
     const handleDelete = id =>{
         
-        const url = `http://localhost:4000/orders/${id}`;
+        const url = `https://fathomless-coast-84439.herokuapp.com/orders/${id}`;
         
         Swal.fire({
           icon: "warning",

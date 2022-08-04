@@ -39,7 +39,7 @@ const CreateBlog = () => {
             img: img,
             date :formattedDate,
         }
-        await fetch('http://localhost:4000/blog', {
+        await fetch('https://fathomless-coast-84439.herokuapp.com/blog', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

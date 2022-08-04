@@ -14,7 +14,7 @@ const FilteredProducts = () => {
     const navigate = useNavigate();
     
     useEffect(()=>{
-        fetch(`http://localhost:4000/tools/${menuFilter}`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/tools/${menuFilter}`)
         .then(res=>res.json())
         .then(data=>{
           setFilteredProducts(data);

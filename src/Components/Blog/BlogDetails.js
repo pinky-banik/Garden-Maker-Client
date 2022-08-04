@@ -23,7 +23,7 @@ const BlogDetails = () => {
     const {img,title,date,details} = blog;
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/blog/${blogId}`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${blogId}`)
         .then(res=>res.json())
         .then(data=>setBlog(data));
     },[blog])
