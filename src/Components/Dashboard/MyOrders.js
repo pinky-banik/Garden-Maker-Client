@@ -4,11 +4,15 @@ import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
 import Swal from 'sweetalert2';
 import auth from '../../Firebase/Firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const MyOrders = () => {
     const [orders,setOrders] = useState([]);
     const [user] = useAuthState(auth);
     const {email,displayName} = user;
+
+
+    const navigate = useNavigate();
 
  
     useEffect(()=>{
@@ -49,10 +53,32 @@ const MyOrders = () => {
         });
 
     }
+    const handlePayment = id =>{
+        
+        const url = `https://fathomless-coast-84439.herokuapp.com/orders/${id}`;
+        
+        Swal.fire({
+          icon: "warning",
+          title: "Are you sure want to pay?",
+          text : "You will redirected to the payment page",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate(`/payment/${id}`); 
+          }
+        });
+
+    }
+
+
+
+
+
     return (
-        <div className=''>
-            <div className="overflow-x-auto w-full">
-            <table className="table w-full">
+        <div className='mb-24'>
+            <div className="overflow-x-scroll w-full">
+            <table className="table w-full pb-20">
                 {/* <!-- head --> */}
                 <thead>
                 <tr>
@@ -62,7 +88,7 @@ const MyOrders = () => {
                     <th>Order Quantity</th>
                     <th>Price</th>
                     <th>Delete</th>
-                    <th>paymentStatus</th>
+                    <th>payment</th>
                     
                 </tr>
                 </thead>
@@ -95,8 +121,8 @@ const MyOrders = () => {
                     <button onClick={()=>handleDelete(order._id)} className="text-red-500 text-2xl"><RiDeleteBin2Fill/></button>
                     </td>
                     <td>
-                        <button className='btn btn-xs bg-primary'>{order.paymentStatus}</button>
-                        </td>
+                        {order.paymentStatus === "incomplete" ? <button onClick={()=>handlePayment(order._id)} className='btn btn-primary btn-xs'>Pay</button> : <button className='btn btn-xs btn-disabled'>paid</button> }
+                    </td>
                     
                     {/* <th>
                     <label onClick={()=> handleId(order)} htmlFor="updateModal" className="text-blue-500 text-2xl"><FiEdit/></label>

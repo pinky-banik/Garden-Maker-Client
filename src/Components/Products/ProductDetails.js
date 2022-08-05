@@ -20,7 +20,7 @@ const ProductDetails = () => {
 
     const[product,setProduct] = useState({});
     const[order,setOrder] = useState({});
-    const[loading,setLoading] = useState(true);
+    const[loading,setLoading] = useState(false);
     const [disabled,setDisabled] = useState(false);
     const[quantity,setQuantity] = useState(0);
     const[availableQuantity,setAvailableQuantity]= useState(0);
@@ -36,7 +36,8 @@ const ProductDetails = () => {
     useEffect(() => {
         
         // declare the data fetching function
-        const fetchData = async() => {
+        const fetchData = () => {
+            setLoading(true);
         fetch(`https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`)
           .then(res=>res.json())
           .then(data=>{
@@ -46,6 +47,7 @@ const ProductDetails = () => {
         fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
           .then(res=>res.json())
         .then(data=>{
+            setLoading(false);
             setStatus("product data is loaded");
             console.log(data);
              setProduct(data);
@@ -65,7 +67,7 @@ const ProductDetails = () => {
                     setDisabled(true);
                     setQuantity(0);
                 }
-                setLoading(false);
+                
             }
         });
         
@@ -73,7 +75,7 @@ const ProductDetails = () => {
         }
         fetchData();
         
-      }, [isEmpty(order)]);
+      }, [isEmpty(order),filter,email]);
 
    
         

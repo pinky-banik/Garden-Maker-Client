@@ -4,7 +4,15 @@ import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import auth from './../Firebase/Firebase.init';
 import useAdmin from '../Hooks/useAdmin';
-import { AiOutlineHome } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineShopping } from 'react-icons/ai';
+import {MdOutlineRateReview} from 'react-icons/md';
+import {BsCardChecklist} from 'react-icons/bs';
+import {HiOutlineUserGroup} from 'react-icons/hi';
+import {BsUiChecks,BsVectorPen,BsBasket} from 'react-icons/bs';
+import {RiFileEditLine,RiShoppingBasketFill} from 'react-icons/ri';
+import {FiPlusSquare} from 'react-icons/fi';
+
+
 
 const Dashboard = ({setSidebar}) => {
     setSidebar(false);
@@ -18,6 +26,8 @@ const Dashboard = ({setSidebar}) => {
         // localStorage.removeItem('accessToken');
         navigate('/');
       };
+      var name = "false";
+      console.log(typeof(name));
 
     return (
         <div className="drawer drawer-mobile pt-14">
@@ -34,22 +44,21 @@ const Dashboard = ({setSidebar}) => {
             <label htmlFor="dashboard" className="drawer-overlay"></label> 
             <ul className="menu p-4 pt-5 overflow-y-auto w-80 bg-base-100 text-base-content ">
             {/* <!-- Sidebar content here --> */}
-            <li className='border-b-2'><Link to="/"><AiOutlineHome/>Home</Link></li>
-            <li className='border-b-2'><Link to="/dashboard/myOrders">My Orders</Link></li>
-            <li className='border-b-2'><Link to="/dashboard/addReview">Add Review</Link></li>
-            <li className='border-b-2'><Link to="/dashboard/myOrders">Add Review</Link></li>
+            <li className='border-b-2'><Link to="/"><AiOutlineHome className='text-primary text-xl'/>Home</Link></li>
+            <li className='border-b-2'><Link to="/dashboard/myOrders"><AiOutlineShopping className='text-primary text-xl'/> My Orders</Link></li>
+            <li className='border-b-2'><Link to="/dashboard/addReview"><MdOutlineRateReview className='text-primary text-xl'/> Add Review</Link></li>
             
            
             {
                 admin &&
                 <>
-                <li className='border-b-2'><Link to="/dashboard/manageOrders">Manage Orders</Link></li>
-                <li className='border-b-2'><Link to="/dashboard/allUsers">All Users</Link></li>
-                <li className='border-b-2'><Link to="/dashboard/allReview">All Reviews</Link></li>
-                <li className='border-b-2'><Link to="/dashboard/createBlog">Create Blog</Link></li>
-                <li className='border-b-2'><Link to="/dashboard/manageblog">Manage Blog</Link></li>
-                <li className='border-b-2'><Link to="/dashboard">Add product</Link></li>
-                <li className='border-b-2'><Link to="/dashboard/allProducts">All Products</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/manageOrders"><BsCardChecklist className='text-primary text-xl'/> Manage Orders</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/allUsers"><HiOutlineUserGroup className='text-primary text-xl'/> All Users</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/allReview"><BsUiChecks className='text-primary text-xl'/>All Reviews</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/createBlog"><BsVectorPen className='text-primary text-xl'/>Create Blog</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/manageblog"><RiFileEditLine className='text-primary text-xl'/>Manage Blog</Link></li>
+                <li className='border-b-2'><Link to="/dashboard"><FiPlusSquare className='text-primary text-xl'/>Add product</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/allProducts"><RiShoppingBasketFill className='text-primary text-xl'/>All Products</Link></li>
                 </>
             }
                 

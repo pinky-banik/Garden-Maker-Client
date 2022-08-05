@@ -22,6 +22,7 @@ import Blogs from './Pages/Blogs';
 import BlogDetails from './Components/Blog/BlogDetails';
 import MyOrders from './Components/Dashboard/MyOrders';
 import ManageOrders from './Components/Dashboard/ManageOrders';
+import Payment from './Components/Dashboard/Payment';
 function App() {
   const[sidebar,setSidebar] =useState(true);
   return (
@@ -34,6 +35,8 @@ function App() {
         <Route path='/products' element={<Products/>}/>
         <Route path='/product-catagory/:menuFilter' element={<Products/>}/>
         <Route path='/productDetails/:filter' element={<RequireAuth><ProductDetails/></RequireAuth>}/>
+        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/payment/:paymentId' element={<RequireAuth><Payment/></RequireAuth>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/blogDetails/:blogId' element={<BlogDetails/>}/>
         <Route path="/dashboard" element={<RequireAuth><Dashboard setSidebar={setSidebar}/></RequireAuth>} >
