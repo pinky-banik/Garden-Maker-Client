@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
-import { useQuery } from 'react-query';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
@@ -20,7 +19,7 @@ const ProductDetails = () => {
 
     const[product,setProduct] = useState({});
     const[order,setOrder] = useState({});
-    const[loading,setLoading] = useState(false);
+    const[loading,setLoading] = useState(true);
     const [disabled,setDisabled] = useState(false);
     const[quantity,setQuantity] = useState(0);
     const[availableQuantity,setAvailableQuantity]= useState(0);
@@ -36,26 +35,26 @@ const ProductDetails = () => {
     useEffect(() => {
         
         // declare the data fetching function
-        const fetchData = () => {
-            setLoading(true);
+        const fetchData = async() => {
         fetch(`https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`)
           .then(res=>res.json())
           .then(data=>{
               console.log(data,"order data has loaded");
               setOrder(data);
             });
-        fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
+        await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
           .then(res=>res.json())
         .then(data=>{
-            setLoading(false);
+            
             setStatus("product data is loaded");
             console.log(data);
              setProduct(data);
-             setQuantity(parseInt(data.minOrderQuantity));
+             
              
              console.log(isEmpty(order));
              if(isEmpty(order) && operation=== false){
                 setStatus("order data is not loaded");
+                setQuantity(parseInt(data.minOrderQuantity));
                 // setOrderedQuantity(parseInt(data.minOrderQuantity)); 
                 setAvailableQuantity( parseInt(data.availableQuantity));
              }
@@ -66,7 +65,10 @@ const ProductDetails = () => {
                 if(( parseInt(data.availableQuantity) - parseInt(order.orderQuantity) ) === 0){
                     setDisabled(true);
                     setQuantity(0);
+                }else{
+                    setDisabled(false);
                 }
+                setLoading(false);
                 
             }
         });
@@ -75,7 +77,7 @@ const ProductDetails = () => {
         }
         fetchData();
         
-      }, [isEmpty(order),filter,email]);
+      }, [isEmpty(order),filter,product]);
 
    
         
@@ -149,7 +151,6 @@ const ProductDetails = () => {
             if(data){
                 setLoading(false);
                 toast.success("Added to queue");
-                setDisabled(true);
                 setAvailableQuantity(availableQuantity-orderQuantity);
                 // localStorage.setItem('availableQuantity',availableQuantity);
                 swal({
@@ -246,7 +247,7 @@ const ProductDetails = () => {
                         
                     </div>
                 </div>
-            <Slider catagory={product.catagory}/>
+            <Slider catagory={product.catagory} filter={filter}/>
             </div>
             <Footer/>
         </div>

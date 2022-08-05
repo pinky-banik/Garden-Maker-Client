@@ -18,7 +18,7 @@ const Payment = () => {
     console.log(price);
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/paymentOrder/${paymentId}`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/paymentOrder/${paymentId}`)
         .then(res=>res.json())
         .then(data=>{
             setLoading(false);

@@ -41,14 +41,14 @@ const Slider = ({catagory}) => {
         });
     },[catagory,sliderProducts]);
 
-    // const handleProduct = name =>{
-    //     navigate(`/productDetails/${name}`);
-    //     window.scrollTo({
-    //         top: 0,
-    //         left: 100,
-    //         behavior: 'smooth'
-    //       });
-    // }
+    const handleProduct = name =>{
+        navigate(`/productDetails/${name}`);
+        window.scrollTo({
+            top: 0,
+            left: 100,
+            behavior: 'smooth'
+          });
+    }
 
     if(loading){
       return <Loading/>
@@ -80,7 +80,7 @@ const Slider = ({catagory}) => {
                 <SwiperSlide key={item._id}>
                     <div className="avatar">
                                 <div className=" mx-auto">
-                                    <img className='object-top btn btn-primary' src={item.img} alt={item.name} onClick={()=> navigate(`/productDetails/${item.name}`)}/>
+                                    <img className='object-top btn btn-primary' src={item.img} alt={item.name} onClick={()=>handleProduct(item.name)}/>
                                 </div>
                                 </div> 
                 </SwiperSlide>
