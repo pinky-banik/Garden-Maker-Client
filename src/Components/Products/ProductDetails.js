@@ -45,7 +45,7 @@ const ProductDetails = () => {
         await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
           .then(res=>res.json())
         .then(data=>{
-            
+            setLoading(false);
             setStatus("product data is loaded");
             console.log(data);
              setProduct(data);
@@ -68,7 +68,7 @@ const ProductDetails = () => {
                 }else{
                     setDisabled(false);
                 }
-                setLoading(false);
+                
                 
             }
         });
@@ -119,6 +119,8 @@ const ProductDetails = () => {
             }
     }
     console.log(orderedQuantity ,quantity);
+
+    
     const handlePurchase = async() =>{
         setStatus(" new order is added");
         const ordering = orderedQuantity+quantity;
@@ -150,6 +152,7 @@ const ProductDetails = () => {
         .then(data=>{
             if(data){
                 setLoading(false);
+                setQuantity(minOrderQuantity);
                 toast.success("Added to queue");
                 setAvailableQuantity(availableQuantity-orderQuantity);
                 // localStorage.setItem('availableQuantity',availableQuantity);
