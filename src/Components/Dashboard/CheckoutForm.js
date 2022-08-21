@@ -120,7 +120,8 @@ const CheckoutForm = ({order}) => {
     }    
     return (
         <div>
-            <form className='border rounded py-2 p-2 my-2' onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
+        <div className=' rounded py-5 focus:outline-none bg-gray-100 p-2 my-2'>
         <CardElement className='focus:outline-none'
             options={{
             style: {
@@ -137,9 +138,13 @@ const CheckoutForm = ({order}) => {
             },
             }}
         />
-      <button className='btn btn-primary btn-xs mt-2' type="submit" disabled={!stripe || !clientSecret ||disabled}>
+        </div>
+      <div className='flex justify-between py-2 items-center font-bold'>
+        <h1>Your Service Charge will be <span className='text-primary'>${price}</span></h1>
+      <button className='btn btn-primary mt-2' type="submit" disabled={!stripe || !clientSecret ||disabled}>
         Pay
       </button>
+      </div>
     </form>
      { cardError && <p className='w-96 mx-auto text-red-500'>{cardError}</p>}
      { success && <p className='w-96 mx-auto text-green-500'>{success}</p>}

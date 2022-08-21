@@ -39,7 +39,7 @@ const Slider = ({catagory}) => {
           setSliderProducts(data.filter(item=>item.name !==filter));
           setLoading(false);  
         });
-    },[catagory,sliderProducts]);
+    },[catagory,sliderProducts,filter]);
 
     const handleProduct = name =>{
         navigate(`/productDetails/${name}`);

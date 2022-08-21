@@ -33,7 +33,7 @@ const BlogDetails = () => {
 
     return (
         <div className='pt-20 '>
-            <div className="card w-96 bg-base-100 shadow-xl my-5">
+            <div className="card w-fit bg-base-100 shadow-xl">
             <figure className="avatar"><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>

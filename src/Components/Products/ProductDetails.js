@@ -19,7 +19,7 @@ const ProductDetails = () => {
 
     const[product,setProduct] = useState({});
     const[order,setOrder] = useState({});
-    const[loading,setLoading] = useState(true);
+    const[loading,setLoading] = useState(false);
     const [disabled,setDisabled] = useState(false);
     const[quantity,setQuantity] = useState(0);
     const[availableQuantity,setAvailableQuantity]= useState(0);
@@ -35,26 +35,26 @@ const ProductDetails = () => {
     useEffect(() => {
         
         // declare the data fetching function
-        const fetchData = async() => {
+        const fetchData = () => {
+            setLoading(true);
         fetch(`https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`)
           .then(res=>res.json())
           .then(data=>{
               console.log(data,"order data has loaded");
               setOrder(data);
             });
-        await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
           .then(res=>res.json())
         .then(data=>{
             setLoading(false);
             setStatus("product data is loaded");
             console.log(data);
              setProduct(data);
-             
+             setQuantity(parseInt(data.minOrderQuantity));
              
              console.log(isEmpty(order));
              if(isEmpty(order) && operation=== false){
                 setStatus("order data is not loaded");
-                setQuantity(parseInt(data.minOrderQuantity));
                 // setOrderedQuantity(parseInt(data.minOrderQuantity)); 
                 setAvailableQuantity( parseInt(data.availableQuantity));
              }
@@ -65,10 +65,7 @@ const ProductDetails = () => {
                 if(( parseInt(data.availableQuantity) - parseInt(order.orderQuantity) ) === 0){
                     setDisabled(true);
                     setQuantity(0);
-                }else{
-                    setDisabled(false);
                 }
-                
                 
             }
         });
@@ -77,7 +74,7 @@ const ProductDetails = () => {
         }
         fetchData();
         
-      }, [isEmpty(order),filter,product]);
+      }, [isEmpty(order),filter,email]);
 
    
         
@@ -119,8 +116,6 @@ const ProductDetails = () => {
             }
     }
     console.log(orderedQuantity ,quantity);
-
-    
     const handlePurchase = async() =>{
         setStatus(" new order is added");
         const ordering = orderedQuantity+quantity;
@@ -152,8 +147,8 @@ const ProductDetails = () => {
         .then(data=>{
             if(data){
                 setLoading(false);
-                setQuantity(minOrderQuantity);
                 toast.success("Added to queue");
+                setDisabled(true);
                 setAvailableQuantity(availableQuantity-orderQuantity);
                 // localStorage.setItem('availableQuantity',availableQuantity);
                 swal({
@@ -250,7 +245,7 @@ const ProductDetails = () => {
                         
                     </div>
                 </div>
-            <Slider catagory={product.catagory} filter={filter}/>
+            <Slider catagory={product.catagory}/>
             </div>
             <Footer/>
         </div>
