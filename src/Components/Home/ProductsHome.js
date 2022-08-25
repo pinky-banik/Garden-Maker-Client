@@ -19,7 +19,7 @@ const ProductsHome = () => {
         <div className="">
             <h1 className='text-center text-2xl lg:text-4xl  font-bold mt-20 uppercase'>Read more about out garden tools.</h1>
             <div className='border border-accent round-2xl w-36 mx-auto my-5'></div>
-            <div className='grid md:grid-cols-2 grid-cols-1 gap-5 p-20 lg:w-5/6 mx-auto'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-5 p-20 lg:w-5/6  mx-auto'>
             {
                 catagory.map((cata,index)=>
                 <div key={index} className="wrapper antialiased text-gray-900 ">

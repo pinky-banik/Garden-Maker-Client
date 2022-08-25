@@ -36,20 +36,15 @@ const FilteredProducts = () => {
 
 
     return (
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-auto'>
+        <div className='grid lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 grid-cols-1 mx-auto'>
                     {
                         filteredProducts?.map(product=>
-                        <div key={product?._id} className="card   bg-base-100 shadow-xl m-5">
-                        <figure className="px-10 pt-10">
-                          <img  src={product.img} alt={product.name} className="rounded-xl h-56 w-56 object-top object-cover " />
+                        <div key={product?._id} className="card   bg-base-100 hover:shadow-xl m-5 cursor-pointer" onClick={()=>handleProduct(product.name)} >
+                        <figure className="p-5">
+                          <img  src={product.img} alt={product.name} className="rounded-xl h-72 w-72 object-top object-cover " />
                         </figure>
-                        <div className="card-body items-center text-center">
-                          <h2 className="card-title">{product.name}</h2>
-                          <p>{product.details.length > 20 ? product.details.slice(0,20)  : product.details }</p>
-                          {/* <p>${product.price}</p> */}
-                          <div className="card-actions">
-                            <button onClick={()=>handleProduct(product.name)} className="btn btn-primary">learn more</button>
-                          </div>
+                        <div className="items-center text-center flex justify-center ">
+                          <h2 className="card-title pb-5 hover:text-accent ">{product.name}</h2>
                         </div>
                       </div>)
                     }

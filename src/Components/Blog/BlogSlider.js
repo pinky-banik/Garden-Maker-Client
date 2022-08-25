@@ -10,6 +10,7 @@ import "swiper/css/bundle";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { BiTimeFive, BiPlayCircle } from 'react-icons/bi';
 
 // install Swiper modules
 SwiperCore.use([Keyboard, Pagination, Navigation]);
@@ -39,7 +40,7 @@ const BlogSlider = () => {
           });
     }
     return (
-        <div className='p-10 px-5 lg:w-3/4 mx-auto'>
+        <div className='p-10 px-5 lg:w-4/5 mx-auto'>
             <Swiper  breakpoints={{
     // when window width is >= 640px
     640: {
@@ -57,13 +58,44 @@ const BlogSlider = () => {
         }} pagination={{
             "clickable": true,
         }} navigation={true} className="mySwiper">
-            {blogs.map((item,index) => (
-                <SwiperSlide key={index}>
-                    <div className="avatar">
+            {blogs.map((blog,index) => (
+                <SwiperSlide key={index} >
+                    {/* <div className="avatar">
                                 <div className=" mx-auto">
                                     <img className='object-top' src={item.img} alt={item.name} onClick={()=>handleRoute(item._id)} />
                                 </div>
-                                </div> 
+                                </div>  */}
+                    <div class="max-w-sm overflow-hidden text-start cursor-pointer bg-gray-100 p-5" onClick={()=>handleRoute(blog._id)} >
+                    <div>
+                    <div>
+                    <div style={{backgroundImage: `url('${blog.img}')`}}  className='group w-full h-72 bg-cover bg-center   justify-center'>
+                        <div className='bg-secondary w-full h-full flex justify-center items-center bg-opacity-0 hover:bg-opacity-80
+                        trasition duration-500 '>
+                        <button onClick={()=>handleRoute(blog._id)} className='hidden w-36 h-12 group-hover:block btn btn-primary '>Learn more</button>
+                        </div>
+                     </div>   
+                    </div>
+                    </div>
+                    <div class="py-4">
+                        <div class="font-bold text-xl mb-2 pb-5 text-primary">
+                            {blog.title}
+                        </div>
+                        
+                        <p class="text-gray-700 text-base">
+                        {blog.details}
+                        </p>
+                    </div>
+                    <div class="pb-2 text-gray-400 flex justify-start w-full text-sm">
+                        <button className='flex items-center '>
+                            <BiTimeFive className='mr-1 text-xl'/> {blog.date}
+                        </button>
+                        <div className='mx-10'>|</div>
+                        <button className='flex justify-center items-center'>
+                            <BiPlayCircle className='mr-1 text-xl'/> Read More
+                        </button>
+                        
+                    </div>
+                    </div>
                 </SwiperSlide>
             ))}
         </Swiper>
