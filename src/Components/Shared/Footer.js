@@ -1,5 +1,6 @@
 import React from 'react';
 import footer from '../../assets/footer.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -12,7 +13,7 @@ const Footer = () => {
                     <div class="max-w-md">
                     <p className='text-accent'>Any Question?</p>
                     <h1 class="mb-5 text-2xl font-bold text-primary">You can contact with us anytime</h1>
-                    <button class="btn-accent py-2 text-white rounded uppercase text-sm px-5">contact us</button>
+                    <Link to="/contact"><button class="btn-accent py-2 text-white rounded uppercase text-sm px-5">contact us</button></Link>
                     </div>
                 </div>
                 </div>

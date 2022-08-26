@@ -9,7 +9,7 @@ import {MdOutlineRateReview} from 'react-icons/md';
 import {BsCardChecklist} from 'react-icons/bs';
 import {HiOutlineUserGroup} from 'react-icons/hi';
 import {BsUiChecks,BsVectorPen,BsBasket} from 'react-icons/bs';
-import {RiFileEditLine,RiShoppingBasketFill} from 'react-icons/ri';
+import {RiFileEditLine,RiMessage2Line,RiShoppingBasketFill} from 'react-icons/ri';
 import {FiPlusSquare} from 'react-icons/fi';
 
 
@@ -54,6 +54,7 @@ const Dashboard = ({setSidebar}) => {
                 <li className='border-b-2'><Link to="/dashboard/manageOrders"><BsCardChecklist className='text-primary text-xl'/> Manage Orders</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allUsers"><HiOutlineUserGroup className='text-primary text-xl'/> All Users</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allReview"><BsUiChecks className='text-primary text-xl'/>All Reviews</Link></li>
+                <li><Link className='border-b-2' to="/dashboard/message"><RiMessage2Line className='text-xl'/>Messages</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/createBlog"><BsVectorPen className='text-primary text-xl'/>Create Blog</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/manageblog"><RiFileEditLine className='text-primary text-xl'/>Manage Blog</Link></li>
                 <li className='border-b-2'><Link to="/dashboard"><FiPlusSquare className='text-primary text-xl'/>Add product</Link></li>

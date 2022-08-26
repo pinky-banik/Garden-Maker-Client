@@ -27,6 +27,8 @@ import ManageOrders from './Components/Dashboard/ManageOrders';
 import Payment from './Components/Dashboard/Payment';
 import AllHistory from './Components/Dashboard/AllHistory';
 import MyHistory from './Components/Dashboard/MyHistory';
+import Contact from './Pages/Contact';
+import Messages from './Components/Dashboard/Messages';
 function App() {
   const[sidebar,setSidebar] =useState(true);
   useEffect(() => {
@@ -45,7 +47,7 @@ function App() {
         <Route path='/products' element={<Products/>}/>
         <Route path='/product-catagory/:menuFilter' element={<Products/>}/>
         <Route path='/productDetails/:filter' element={<RequireAuth><ProductDetails/></RequireAuth>}/>
-        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/contact' element={<Contact/>}/>
         <Route path='/payment/:paymentId' element={<RequireAuth><Payment/></RequireAuth>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/blogDetails/:blogId' element={<BlogDetails/>}/>
@@ -62,6 +64,7 @@ function App() {
           <Route path="manageBlog" element={<RequireAdmin><ManageBlogs/></RequireAdmin>}></Route>
           <Route path="history" element={<RequireAdmin><AllHistory/></RequireAdmin>}></Route>
           <Route path="myhistory" element={<RequireAdmin><MyHistory/></RequireAdmin>}></Route>
+          <Route path="message" element={<RequireAdmin><Messages/></RequireAdmin>}></Route>
           
         </Route>
       </Routes>
