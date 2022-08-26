@@ -48,11 +48,11 @@ const Contact = () => {
     }
     return (
         <div id="contact" className=' py-5 bg-[#eee]'>
-            <div class="hero bg-banner" >
-            <div class="hero-overlay bg-opacity-80 bg-primary"></div>
-                <div class="hero-content text-center py-36">
+            <div className="hero bg-banner" >
+            <div className="hero-overlay bg-opacity-80 bg-primary"></div>
+                <div className="hero-content text-center py-36">
                     
-                    <div class="max-w-md">
+                    <div className="max-w-md">
                     <p className='text-white text-4xl'>Contact Us</p>
                     
                     </div>

@@ -24,11 +24,11 @@ const Blogs = () => {
     }
     return (
       <div className='bg-white'>
-        <div class="hero bg-banner" >
-            <div class="hero-overlay bg-opacity-80 bg-primary"></div>
-                <div class="hero-content text-center py-36">
+        <div className="hero bg-banner" >
+            <div className="hero-overlay bg-opacity-80 bg-primary"></div>
+                <div className="hero-content text-center py-36">
                     
-                    <div class="max-w-md">
+                    <div className="max-w-md">
                     <p className='text-white text-4xl'>Blog</p>
                     
                     </div>
@@ -38,7 +38,7 @@ const Blogs = () => {
             <div className='grid md:grid-cols-2 grid-cols-1 gap-5 xl:grid-cols-3'>
                 {
                     blogs.map(blog=>
-                        <div class="max-w-sm overflow-hidden text-start cursor-pointer bg-gray-100 p-5" onClick={()=>handleRoute(blog._id)} >
+                        <div key={blog._id} className="max-w-sm overflow-hidden text-start cursor-pointer bg-gray-100 p-5" onClick={()=>handleRoute(blog._id)} >
                     <div>
                     <div>
                     <div style={{backgroundImage: `url('${blog.img}')`}}  className='group w-full h-72 bg-cover bg-center   justify-center'>
@@ -49,16 +49,16 @@ const Blogs = () => {
                      </div>   
                     </div>
                     </div>
-                    <div class="py-4">
-                        <div class="font-bold text-xl mb-2 pb-5 text-primary">
+                    <div className="py-4">
+                        <div className="font-bold text-xl mb-2 pb-5 text-primary">
                             {blog.title}
                         </div>
                         
-                        <p class="text-gray-700 text-base">
+                        <p className="text-gray-700 text-base">
                         {blog.details}
                         </p>
                     </div>
-                    <div class="pb-2 text-gray-400 flex justify-start w-full text-sm">
+                    <div className="pb-2 text-gray-400 flex justify-start w-full text-sm">
                         <button className='flex items-center '>
                             <BiTimeFive className='mr-1 text-xl'/> {blog.date}
                         </button>

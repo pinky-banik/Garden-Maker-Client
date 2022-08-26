@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { isEmpty } from '@firebase/util';
 import swal from 'sweetalert';
 const ProductDetails = () => {
-    // const[loading,setLoading] = useState(true);
+    const[loading,setLoading] = useState(true);
     
     const {filter} = useParams();
     const [user] = useAuthState(auth);
@@ -35,19 +35,20 @@ const ProductDetails = () => {
     useEffect(() => {
         
         // declare the data fetching function
-        const fetchData = async() => {
+        const fetchData =async () => {
             // setLoading(true);
-        await fetch(`https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`)
+        fetch(`https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`)
           .then(res=>res.json())
           .then(data=>{
               console.log(data,"order data has loaded");
               setOrder(data);
+            //   setLoading(false);
             });
             
         await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
           .then(res=>res.json())
         .then(data=>{
-            setLoading(false);
+            // setLoading(false);
             setStatus("product data is loaded");
             console.log(data);
              setProduct(data);
@@ -59,7 +60,7 @@ const ProductDetails = () => {
                 setStatus("order data is not loaded");
                 // setOrderedQuantity(parseInt(data.minOrderQuantity)); 
                 setAvailableQuantity( parseInt(data.availableQuantity));
-                // setLoading(false);
+                setLoading(false);
              }
             else{
                 setStatus("order data is loaded");
@@ -73,10 +74,10 @@ const ProductDetails = () => {
                 else(
                     setDisabled(false)
                 )
-                // setLoading(false);
+                setLoading(false);
                 
             }
-            setLoading(false);
+            // setLoading(false);
             // toast.success(status);
         });
        
@@ -145,7 +146,6 @@ const ProductDetails = () => {
             img: img,
             paymentStatus :"incomplete",
         }
-        console.log(order);
         await fetch(`https://fathomless-coast-84439.herokuapp.com/orders?email=${email}&productName=${name}`, {
             method: 'PUT',
             headers: {
@@ -198,7 +198,7 @@ const ProductDetails = () => {
     
 
     return (
-        <div className='pt-20 bg-white '>
+        <div className='pt-20 bg-white'>
             <div className=''>
             <div className="max-w-screen-xl mx-auto px-6 my-16 py-16 flex flex-col justify-center items-center ">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">

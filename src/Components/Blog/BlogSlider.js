@@ -73,7 +73,7 @@ const BlogSlider = () => {
                                     <img className='object-top' src={item.img} alt={item.name} onClick={()=>handleRoute(item._id)} />
                                 </div>
                                 </div>  */}
-                    <div class="max-w-sm overflow-hidden text-start cursor-pointer bg-gray-100 p-5" onClick={()=>handleRoute(blog._id)} >
+                    <div className="max-w-sm overflow-hidden text-start cursor-pointer bg-gray-100 p-5" onClick={()=>handleRoute(blog._id)} >
                     <div>
                     <div>
                     <div style={{backgroundImage: `url('${blog.img}')`}}  className='group w-full h-72 bg-cover bg-center   justify-center'>
@@ -84,16 +84,16 @@ const BlogSlider = () => {
                      </div>   
                     </div>
                     </div>
-                    <div class="py-4">
-                        <div class="font-bold text-xl mb-2 pb-5 text-primary">
+                    <div className="py-4">
+                        <div className="font-bold text-xl mb-2 pb-5 text-primary">
                             {blog.title}
                         </div>
                         
-                        <p class="text-gray-700 text-base">
+                        <p className="text-gray-700 text-base">
                         {blog.details}
                         </p>
                     </div>
-                    <div class="pb-2 text-gray-400 flex justify-start w-full text-sm">
+                    <div className="pb-2 text-gray-400 flex justify-start w-full text-sm">
                         <button className='flex items-center '>
                             <BiTimeFive className='mr-1 text-xl'/> {blog.date}
                         </button>

@@ -7,13 +7,13 @@ const Footer = () => {
         <div>
             <div className='border border-accent round-2xl w-3/5  mx-auto my-16'></div>
             <div >
-                <div class="hero " style={{backgroundImage: `url('${footer}')`}}>
-                <div class="hero-content text-center pb-56">
+                <div className="hero " style={{backgroundImage: `url('${footer}')`}}>
+                <div className="hero-content text-center pb-56">
                     
-                    <div class="max-w-md">
+                    <div className="max-w-md">
                     <p className='text-accent'>Any Question?</p>
-                    <h1 class="mb-5 text-2xl font-bold text-primary">You can contact with us anytime</h1>
-                    <Link to="/contact"><button class="btn-accent py-2 text-white rounded uppercase text-sm px-5">contact us</button></Link>
+                    <h1 className="mb-5 text-2xl font-bold text-primary">You can contact with us anytime</h1>
+                    <Link to="/contact"><button className="btn-accent py-2 text-white rounded uppercase text-sm px-5">contact us</button></Link>
                     </div>
                 </div>
                 </div>

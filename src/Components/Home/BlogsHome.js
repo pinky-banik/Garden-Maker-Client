@@ -33,7 +33,7 @@ const BlogsHome = () => {
                     <div key={blog._id} className=" md:w-fit bg-base-100 p-5">
                     {/* <div className='flex justify-center items-center'>
                     <div>
-                    <div class="avatar ">
+                    <div className="avatar ">
                     <div style={{backgroundImage: `url('${blog.img}')`}}  className='group w-full sm:h-72 lg:h-96 h-56 bg-cover object-center rounded-lg shadow-md  justify-center'>
                         <div className='bg-secondary w-full h-full flex justify-center items-center bg-opacity-0 hover:bg-opacity-80
                         trasition duration-500 hover:rounded-lg'>
@@ -57,7 +57,7 @@ const BlogsHome = () => {
                     
                     </div> */} 
                     
-                    <div class="max-w-sm overflow-hidden ">
+                    <div className="max-w-sm overflow-hidden ">
                     <div>
                     <div>
                     <div style={{backgroundImage: `url('${blog.img}')`}}  className='group w-full h-72 bg-cover bg-center   justify-center'>
@@ -68,16 +68,16 @@ const BlogsHome = () => {
                      </div>   
                     </div>
                     </div>
-                    <div class="py-4">
-                        <div class="font-bold text-xl mb-2 pb-5 text-primary">
+                    <div className="py-4">
+                        <div className="font-bold text-xl mb-2 pb-5 text-primary">
                             {blog.title}
                         </div>
                         
-                        <p class="text-gray-700 text-base">
+                        <p className="text-gray-700 text-base">
                         {blog.details}
                         </p>
                     </div>
-                    <div class="pb-2 text-gray-400 flex justify-start w-full text-sm">
+                    <div className="pb-2 text-gray-400 flex justify-start w-full text-sm">
                         <button className='flex items-center '>
                             <BiTimeFive className='mr-1 text-xl'/> {blog.date}
                         </button>

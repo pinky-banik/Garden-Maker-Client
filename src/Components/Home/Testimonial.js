@@ -28,7 +28,7 @@ const Testimonial = ({testimonial}) => {
         //     
         // </div>
         // </div>
-        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl">
         <div className=" p-5 ">
         <div className='avatar p-5 flex '>
         <div className="w-16 h-16 rounded-full ring ring-primary">
@@ -42,7 +42,7 @@ const Testimonial = ({testimonial}) => {
             </div>
         </div>
         </div>
-        <div class="card-body">
+        <div className="card-body">
             <p className='text-start'>{review}</p>
              <div className='flex text-2xl py-2 text-primary'>
             <Rating

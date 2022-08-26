@@ -41,11 +41,11 @@ const BlogDetails = () => {
 
     return (
         <div className='pt-18 '>
-            <div class="hero " style={{backgroundImage: `url('${blogCover}')`}}>
-            <div class="hero-overlay bg-opacity-80 bg-primary"></div>
-                <div class="hero-content text-center py-36">
+            <div className="hero " style={{backgroundImage: `url('${blogCover}')`}}>
+            <div className="hero-overlay bg-opacity-80 bg-primary"></div>
+                <div className="hero-content text-center py-36">
                     
-                    <div class="max-w-md">
+                    <div className="max-w-md">
                     <p className='text-white text-4xl'>{title}</p>
                     
                     </div>
