@@ -12,7 +12,7 @@ const CheckoutForm = ({order}) => {
     const [transectionId,setTransectionId] = useState('');
     const [processing,setProcessing] = useState(false);
 
-    const {_id,price,name,email,productName,orderQuantity} = order;
+    const {_id,price,name,email,productName,orderQuantity,img} = order;
     console.log(price);
 
     useEffect(() => {
@@ -95,12 +95,13 @@ const CheckoutForm = ({order}) => {
             //store payment data on database
             const formattedDate = Moment().format('YYYY-MM-DD');
             const payment = {
+                img : img,
                 name : name,
                 email : email,
                 productName : productName,
                 price : price,
                 orderQuantity : orderQuantity,
-                transectionId : paymentIntent.transectionId,
+                transectionId : paymentIntent.id,
                 date: formattedDate,
 
             }

@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import { isEmpty } from '@firebase/util';
 import swal from 'sweetalert';
 const ProductDetails = () => {
+    const[loading,setLoading] = useState(true);
     
     const {filter} = useParams();
     const [user] = useAuthState(auth);
@@ -19,12 +20,10 @@ const ProductDetails = () => {
 
     const[product,setProduct] = useState({});
     const[order,setOrder] = useState({});
-    const[loading,setLoading] = useState(false);
     const [disabled,setDisabled] = useState(false);
     const[quantity,setQuantity] = useState(0);
     const[availableQuantity,setAvailableQuantity]= useState(0);
     // const[price,setPrice]= useState(0);
-    const[orderedQuantity,setOrderedQuantity]=useState(0);
     const[orderQuantity,setOrderQuantity] = useState(0);
     const[status,setStatus] = useState('data is not loaded');
     const [operation,setOperation] = useState(false);
@@ -32,18 +31,20 @@ const ProductDetails = () => {
     const{name,details,img} = product;
     const minOrderQuantity = parseInt(product.minOrderQuantity);
     const pricePerUnit = parseInt(product.pricePerUnit);
+    const[orderedQuantity,setOrderedQuantity]=useState(0);
     useEffect(() => {
         
         // declare the data fetching function
-        const fetchData = () => {
-            setLoading(true);
-        fetch(`https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`)
+        const fetchData = async() => {
+            // setLoading(true);
+        await fetch(`https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`)
           .then(res=>res.json())
           .then(data=>{
               console.log(data,"order data has loaded");
               setOrder(data);
             });
-        fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
+            
+        await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`)
           .then(res=>res.json())
         .then(data=>{
             setLoading(false);
@@ -53,28 +54,38 @@ const ProductDetails = () => {
              setQuantity(parseInt(data.minOrderQuantity));
              
              console.log(isEmpty(order));
+             
              if(isEmpty(order) && operation=== false){
                 setStatus("order data is not loaded");
                 // setOrderedQuantity(parseInt(data.minOrderQuantity)); 
                 setAvailableQuantity( parseInt(data.availableQuantity));
+                // setLoading(false);
              }
             else{
                 setStatus("order data is loaded");
                 setOrderedQuantity(parseInt(order.orderQuantity)); 
                 setAvailableQuantity( parseInt(data.availableQuantity) - parseInt(order.orderQuantity) );
+                
                 if(( parseInt(data.availableQuantity) - parseInt(order.orderQuantity) ) === 0){
                     setDisabled(true);
                     setQuantity(0);
                 }
+                else(
+                    setDisabled(false)
+                )
+                // setLoading(false);
                 
             }
+            setLoading(false);
+            // toast.success(status);
         });
+       
         
         // call the function       
         }
         fetchData();
         
-      }, [isEmpty(order),filter,email]);
+      }, [isEmpty(order),filter,email,parseInt(order.orderQuantity),disabled]);
 
    
         
@@ -187,18 +198,18 @@ const ProductDetails = () => {
     
 
     return (
-        <div className='pt-20 '>
+        <div className='pt-20 bg-white '>
             <div className=''>
-            <div className="max-w-screen-xl mx-auto px-6 my-16 py-16 flex flex-col justify-center items-center">
+            <div className="max-w-screen-xl mx-auto px-6 my-16 py-16 flex flex-col justify-center items-center ">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
 
                         {/* left side  */}
                         <div className="order-2 md:order-1 lg:order-1 flex flex-col justify-center text-center md:text-left">
                             <h1 className="text-center md:text-left  text-3xl lg:text-4xl font-semibold poppins pb-4 text-gray-700 select-none">{name}</h1>
                             <p className="text-center md:text-left lg:text-left text-sm poppins text-gray-500 leading-relaxed select-none">{details}</p>
-                            <p>Available Quantity :{availableQuantity}</p>
-                            <p>Minimum Order Quantity : {minOrderQuantity}</p>
-                            <p>Price Per Quantity: {pricePerUnit}</p>
+                            <p className='pt-10'>Available Quantity :   {availableQuantity}</p>
+                            <p>Minimum Order Quantity :     {minOrderQuantity}</p>
+                            <p>Price Per Quantity:  {pricePerUnit}</p>
                             {/* <p>final price: {price}</p> */}
                             {/* <div className='border-2 p-5'>
                             <p className='border-b-2'>Name : {newOrder?.name}</p>

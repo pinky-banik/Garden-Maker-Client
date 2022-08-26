@@ -4,6 +4,7 @@ import BlogsHome from '../Components/Home/BlogsHome';
 import Business from '../Components/Home/Business';
 import ProductsHome from '../Components/Home/ProductsHome';
 import Speciality from '../Components/Home/Speciality';
+import Testimonials from '../Components/Home/Testimonials';
 import Footer from '../Components/Shared/Footer';
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
            <ProductsHome/>
            <Business/>
            <BlogsHome/>
+           <Testimonials/>
            <Footer/>
         </div>
     );

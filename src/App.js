@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect, useState } from 'react';
 import {Routes,Route}  from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,8 +25,16 @@ import BlogDetails from './Components/Blog/BlogDetails';
 import MyOrders from './Components/Dashboard/MyOrders';
 import ManageOrders from './Components/Dashboard/ManageOrders';
 import Payment from './Components/Dashboard/Payment';
+import AllHistory from './Components/Dashboard/AllHistory';
+import MyHistory from './Components/Dashboard/MyHistory';
 function App() {
   const[sidebar,setSidebar] =useState(true);
+  useEffect(() => {
+    AOS.init({
+      duration: 1300
+    });
+    AOS.refresh();
+  }, [])
   return (
     <div>
       <Navbar/>
@@ -50,6 +60,9 @@ function App() {
           <Route path="allReview" element={<RequireAdmin><AllReview/></RequireAdmin>}></Route>
           <Route path="createBlog" element={<RequireAdmin><CreateBlog/></RequireAdmin>}></Route>
           <Route path="manageBlog" element={<RequireAdmin><ManageBlogs/></RequireAdmin>}></Route>
+          <Route path="history" element={<RequireAdmin><AllHistory/></RequireAdmin>}></Route>
+          <Route path="myhistory" element={<RequireAdmin><MyHistory/></RequireAdmin>}></Route>
+          
         </Route>
       </Routes>
       <ToastContainer />

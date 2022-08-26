@@ -54,8 +54,10 @@ const Slider = ({catagory}) => {
       return <Loading/>
     }
     return (
-        <div className='p-10 px-5 lg:w-3/4 mx-auto'>
-            <Swiper  breakpoints={{
+        <div className='p-10 px-5  mx-auto'>
+            <Swiper
+            // loop={true} 
+             breakpoints={{
     // when window width is >= 640px
     640: {
       width: 640,
@@ -68,9 +70,10 @@ const Slider = ({catagory}) => {
     },
     1080: {
       width: 1080,
-      slidesPerView: 3,
+      slidesPerView: 4,
     },
   }}
+  
   spaceBetween={30} keyboard={{
             "enabled": true
         }} pagination={{

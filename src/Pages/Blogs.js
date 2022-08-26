@@ -35,7 +35,7 @@ const Blogs = () => {
                 </div>
                 </div>
           <div className='flex justify-center pt-20'>
-            <div className='grid md:grid-cols-3 grid-cols-1 gap-5'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-5 xl:grid-cols-3'>
                 {
                     blogs.map(blog=>
                         <div class="max-w-sm overflow-hidden text-start cursor-pointer bg-gray-100 p-5" onClick={()=>handleRoute(blog._id)} >

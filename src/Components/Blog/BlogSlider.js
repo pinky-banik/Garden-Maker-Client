@@ -19,7 +19,7 @@ SwiperCore.use([Keyboard, Pagination, Navigation]);
 const BlogSlider = () => {
     const[blogs,setBlogs] = useState([]);
     // console.log(blogs);
-
+    const {blogId} = useParams();
     
     const navigate = useNavigate();
     
@@ -27,7 +27,7 @@ const BlogSlider = () => {
         fetch(`https://fathomless-coast-84439.herokuapp.com/blog`)
         .then(res=>res.json())
         .then(data=>{
-          setBlogs(data);   
+          setBlogs(data.filter(item=>item._id !==blogId));   
         });
     },[blogs]);
 
@@ -40,7 +40,7 @@ const BlogSlider = () => {
           });
     }
     return (
-        <div className='p-10 px-5 lg:w-4/5 mx-auto'>
+        <div className='p-10 px-5  mx-auto'>
             <Swiper  breakpoints={{
     // when window width is >= 640px
     640: {
@@ -52,12 +52,20 @@ const BlogSlider = () => {
       width: 768,
       slidesPerView: 2,
     },
+    1080: {
+      width: 1080,
+      slidesPerView: 3,
+    },
   }}
+  
   spaceBetween={30} keyboard={{
             "enabled": true
         }} pagination={{
             "clickable": true,
-        }} navigation={true} className="mySwiper">
+        }}
+         loop={true}
+         navigation={true}
+          className="mySwiper">
             {blogs.map((blog,index) => (
                 <SwiperSlide key={index} >
                     {/* <div className="avatar">

@@ -16,15 +16,19 @@ const Products = () => {
     }
 
     return (
-        <div>
+        <div className='bg-white'>
             <div className='pt-20 '>
             <div className='mx-5 lg:flex lg:min-h-screen'>
-                <div className='menu'>
-                <ul className="menu bg-base-100 w-56">
+                <div className='menu mt-7'>
+                <ul className="menu bg-base-100 w-56 ">
+                    <li><button className='btn-disabled bg-primary text-white' >Products</button></li>
                     {
                         catagory.map(cata=>
-                        <li className={filter === cata.name ? 'bg-primary text-white' :''} key={cata.id}>
+                        <>
+                        <li className={filter === cata.name ? 'bg-accent text-white' :'bg-gray-100 border-b'} key={cata.id}>
                             <button onClick={()=>handleFilter(cata.name)}>{cata.name}</button></li>
+                        </>
+                            
                         )
                     }
                 </ul>

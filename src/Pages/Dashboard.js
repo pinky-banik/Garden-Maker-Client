@@ -4,7 +4,7 @@ import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import auth from './../Firebase/Firebase.init';
 import useAdmin from '../Hooks/useAdmin';
-import { AiOutlineHome, AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineFieldTime, AiOutlineHistory, AiOutlineHome, AiOutlineShopping } from 'react-icons/ai';
 import {MdOutlineRateReview} from 'react-icons/md';
 import {BsCardChecklist} from 'react-icons/bs';
 import {HiOutlineUserGroup} from 'react-icons/hi';
@@ -45,12 +45,11 @@ const Dashboard = ({setSidebar}) => {
             <ul className="menu p-4 pt-5 overflow-y-auto w-80 bg-base-100 text-base-content ">
             {/* <!-- Sidebar content here --> */}
             <li className='border-b-2'><Link to="/"><AiOutlineHome className='text-primary text-xl'/>Home</Link></li>
-            <li className='border-b-2'><Link to="/dashboard/myOrders"><AiOutlineShopping className='text-primary text-xl'/> My Orders</Link></li>
-            <li className='border-b-2'><Link to="/dashboard/addReview"><MdOutlineRateReview className='text-primary text-xl'/> Add Review</Link></li>
+            
             
            
             {
-                admin &&
+                admin ?
                 <>
                 <li className='border-b-2'><Link to="/dashboard/manageOrders"><BsCardChecklist className='text-primary text-xl'/> Manage Orders</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allUsers"><HiOutlineUserGroup className='text-primary text-xl'/> All Users</Link></li>
@@ -59,6 +58,14 @@ const Dashboard = ({setSidebar}) => {
                 <li className='border-b-2'><Link to="/dashboard/manageblog"><RiFileEditLine className='text-primary text-xl'/>Manage Blog</Link></li>
                 <li className='border-b-2'><Link to="/dashboard"><FiPlusSquare className='text-primary text-xl'/>Add product</Link></li>
                 <li className='border-b-2'><Link to="/dashboard/allProducts"><RiShoppingBasketFill className='text-primary text-xl'/>All Products</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/history"><AiOutlineFieldTime className='text-primary text-xl'/>Order History</Link></li>
+                
+                </>
+                :
+                <>
+                <li className='border-b-2'><Link to="/dashboard/addReview"><MdOutlineRateReview className='text-primary text-xl'/> Add Review</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/myOrders"><AiOutlineShopping className='text-primary text-xl'/> My Orders</Link></li>
+                <li className='border-b-2'><Link to="/dashboard/myhistory"><AiOutlineHistory className='text-primary text-xl'/>My History</Link></li>
                 </>
             }
                 
