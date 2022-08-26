@@ -23,7 +23,7 @@ const Blogs = () => {
         return <Loading/>
     }
     return (
-      <div>
+      <div className='bg-white'>
         <div class="hero bg-banner" >
             <div class="hero-overlay bg-opacity-80 bg-primary"></div>
                 <div class="hero-content text-center py-36">

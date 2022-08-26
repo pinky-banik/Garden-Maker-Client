@@ -8,7 +8,7 @@ import { render } from '@testing-library/react';
 const Business = () => {
     return (
         <div>
-            <div className='py-10 bg-cover bg-center'  style={{backgroundImage: `url('${business}')`}}>
+            <div className='py-20 bg-cover bg-center'  style={{backgroundImage: `url('${business}')`}}>
                 <div className='text-center'>
                 <h1 className='uppercase pt-5 text-4xl text-primary font-bold'>Millions Busines trust Us</h1>
                 <p className='uppercase'>Try to understand users expectation</p>

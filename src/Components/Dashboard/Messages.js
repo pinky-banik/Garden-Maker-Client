@@ -8,7 +8,7 @@ import {AiFillEye} from 'react-icons/ai';
 const Messages = () => {
     const [loading,setLoading] = useState(true);
     const[review,setReview] = useState([]);
-
+    console.log(review);
     useEffect(()=>{
         fetch("https://fathomless-coast-84439.herokuapp.com/message")
         .then(res=>res.json())
@@ -103,3 +103,4 @@ const Messages = () => {
 };
 
 export default Messages;
+

@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { isEmpty } from '@firebase/util';
 import swal from 'sweetalert';
 const ProductDetails = () => {
-    const[loading,setLoading] = useState(true);
+    // const[loading,setLoading] = useState(true);
     
     const {filter} = useParams();
     const [user] = useAuthState(auth);
