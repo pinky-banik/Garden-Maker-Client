@@ -10,7 +10,7 @@ const Messages = () => {
     const[review,setReview] = useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:4000/message")
+        fetch("https://fathomless-coast-84439.herokuapp.com/message")
         .then(res=>res.json())
         .then(data=>
        {
@@ -28,7 +28,7 @@ const Messages = () => {
     
 
     const handleDelete = async id =>{
-      await fetch(`http://localhost:4000/message/${id}`,{
+      await fetch(`https://fathomless-coast-84439.herokuapp.com/message/${id}`,{
         method:'DELETE',
       })
       .then(res=>res.json())

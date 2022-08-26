@@ -13,7 +13,7 @@ const AllHistory = () => {
 
  
     useEffect(()=>{
-        fetch("http://localhost:4000/history")
+        fetch("https://fathomless-coast-84439.herokuapp.com/history")
         .then(res=>res.json())
         .then(data=>{
             setOrders(data);
@@ -25,7 +25,7 @@ const AllHistory = () => {
 
     const handleDelete = id =>{
         
-        const url = `http://localhost:4000/history/${id}`;
+        const url = `https://fathomless-coast-84439.herokuapp.com/history/${id}`;
         
         Swal.fire({
           icon: "warning",

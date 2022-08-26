@@ -22,7 +22,7 @@ const Contact = () => {
             message: data.message,
             img: user.photoURL,
         }
-        fetch("http://localhost:4000/message",{
+        fetch("https://fathomless-coast-84439.herokuapp.com/message",{
         method :'POST',
         headers :{
             'content-type' :'application/json'
