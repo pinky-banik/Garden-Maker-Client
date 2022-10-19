@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import {RiDeleteBin2Fill} from  'react-icons/ri';
 import {AiFillStar } from 'react-icons/ai';
 import {AiFillEye} from 'react-icons/ai';
+import Swal from 'sweetalert2';
+
 
 const AllReview = () => {
     const [loading,setLoading] = useState(true);
@@ -21,22 +23,31 @@ const AllReview = () => {
         return <Loading/>
     }
     
-
-    const handleDelete = async id =>{
-      await fetch(`https://fathomless-coast-84439.herokuapp.com/review/${id}`,{
-        method:'DELETE',
-      })
-      .then(res=>res.json())
-      .then(data=>{
-        // console.log(data);
-        if(data.deletedCount > 0){
-          toast.success("Review deleted Successfully");
-        }
-        else{
-          toast.error("Failed to Delete this review");
-        }
-      })
+    const handleDelete = id =>{
+        
+        const url = `https://fathomless-coast-84439.herokuapp.com/review/${id}`;
+        Swal.fire({
+          icon: "warning",
+          title: "Are you sure to delete this product?",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(url, {
+              method: 'delete'
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.deletedCount > 0){
+                toast.success("Review deleted Successfully");
+              }
+              else{
+                toast.error("Failed to Delete this review");
+              }} );
+          }
+        });
     }
+    
     return (
         <div>
             <div className="overflow-x-auto w-full">

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../Shared/Loading';
 import { toast } from 'react-toastify';
 import {RiDeleteBin2Fill} from  'react-icons/ri';
-import {FiEdit} from 'react-icons/fi';
-import UpdateProductModal from './UpdateProductModal';
+import Swal from 'sweetalert2';
 
 
 const AllUsers = () => {
@@ -30,20 +29,31 @@ const AllUsers = () => {
     //   setSelectedTool(tool);
     //   setBookingOpen(true)
     //   }
+    
 
-    const handleDelete = async id =>{
-      await fetch(`https://fathomless-coast-84439.herokuapp.com/user/${id}`,{
-        method:'DELETE',
-      })
-      .then(res=>res.json())
-      .then(data=>{
-        if(data.deletedCount > 0){
-          toast.success("Product deleted Successfully");
+    const handleDelete = id =>{
+        
+      const url = `https://fathomless-coast-84439.herokuapp.com/user/${id}`;
+      Swal.fire({
+        icon: "warning",
+        title: "Are you sure to delete this product?",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(url, {
+            method: 'delete'
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.deletedCount > 0){
+            toast.success("User deleted Successfully");
+          }
+          else{
+            toast.error("User deleting unsuccessful");
+          }} );
         }
-        else{
-          toast.error("Product deleting unsuccessful");
-        }
-      })
+      });
     }
     
     const handleMakeAdmin = email =>{

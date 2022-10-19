@@ -6,6 +6,7 @@ import {FiEdit} from 'react-icons/fi';
 import UpdateBlogModal from './UpdateBlogModal';
 import {AiFillEye} from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const ManageBlogs = () => {
@@ -34,20 +35,45 @@ const ManageBlogs = () => {
       setBookingOpen(true)
       }
 
-    const handleDelete = async id =>{
-      await fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${id}`,{
-        method:'DELETE',
-      })
-      .then(res=>res.json())
-      .then(data=>{
-        // console.log(data);
-        if(data.deletedCount > 0){
-          toast.success("Blog deleted Successfully");
-        }
-        else{
-          toast.error("Blog deleting unsuccessful");
-        }
-      })
+    // const handleDelete = async id =>{
+    //   await fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${id}`,{
+    //     method:'DELETE',
+    //   })
+    //   .then(res=>res.json())
+    //   .then(data=>{
+    //     // console.log(data);
+    //     if(data.deletedCount > 0){
+    //       toast.success("Blog deleted Successfully");
+    //     }
+    //     else{
+    //       toast.error("Blog deleting unsuccessful");
+    //     }
+    //   })
+    // }
+
+    const handleDelete = id =>{
+        
+        const url = `https://fathomless-coast-84439.herokuapp.com/blog/${id}`;
+        Swal.fire({
+          icon: "warning",
+          title: "Are you sure to delete this product?",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(url, {
+              method: 'delete'
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.deletedCount > 0){
+                toast.success("Blog deleted Successfully");
+              }
+              else{
+                toast.error("Blog deleting unsuccessful");
+              }} );
+          }
+        });
     }
 
     const handleWatch=id =>{
