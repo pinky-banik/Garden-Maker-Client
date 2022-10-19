@@ -6,12 +6,14 @@ import ProductsHome from '../Components/Home/ProductsHome';
 import Speciality from '../Components/Home/Speciality';
 import Testimonials from '../Components/Home/Testimonials';
 import Footer from '../Components/Shared/Footer';
+import Navbar from '../Components/Shared/Navbar';
 
 const Home = () => {
     
     return (
 
         <div >
+           <Navbar/>
            <Banner/>
            <Speciality/>
            <ProductsHome/>

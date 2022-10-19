@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { catagory } from '../Components/Shared/Catagory';
 import FilteredProducts from '../Components/Products/FilteredProducts';
 import Footer from '../Components/Shared/Footer';
+import Navbar from '../Components/Shared/Navbar';
 
 const Products = () => {
     const[filter,setFilter] = useState(catagory[0]);
@@ -17,10 +18,11 @@ const Products = () => {
 
     return (
         <div className='bg-white'>
+            <Navbar/>
             <div className='pt-20 '>
             <div className='mx-5 lg:flex lg:min-h-screen'>
                 <div className='menu mt-7'>
-                <ul className="menu bg-base-100 w-56 ">
+                <ul className="menu bg-base-100 lg:w-56 w-2/3 mx-auto ">
                     <li><button className='btn-disabled bg-primary text-white' >Products</button></li>
                     {
                         catagory.map(cata=>

@@ -13,7 +13,7 @@ const Speciality = () => {
                             <div >
                             <img className='mx-auto my-5' src={sp.img} alt="" />
                             </div>
-                            <h1 className='text-lg w-3/4 mx-auto text-accent py-3'>{sp.name}</h1>
+                            <h1 className='text-lg w-3/4 mx-auto text-accent py-3 font-bold'>{sp.name}</h1>
                             <p className='text-gray-500 text-sm'>{sp.details}</p>
                             </div>
                         </div>)

@@ -29,8 +29,8 @@ import AllHistory from './Components/Dashboard/AllHistory';
 import MyHistory from './Components/Dashboard/MyHistory';
 import Contact from './Pages/Contact';
 import Messages from './Components/Dashboard/Messages';
+import Error from './Components/Shared/Error';
 function App() {
-  const[sidebar,setSidebar] =useState(true);
   useEffect(() => {
     AOS.init({
       duration: 1300
@@ -39,7 +39,6 @@ function App() {
   }, [])
   return (
     <div>
-      <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -51,7 +50,7 @@ function App() {
         <Route path='/payment/:paymentId' element={<RequireAuth><Payment/></RequireAuth>}/>
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/blogDetails/:blogId' element={<BlogDetails/>}/>
-        <Route path="/dashboard" element={<RequireAuth><Dashboard setSidebar={setSidebar}/></RequireAuth>} >
+        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>} >
          <Route path="addReview" element={<AddReview/>}></Route>
           <Route index element={<AddProduct/>}></Route>
           <Route path="myOrders" element={<MyOrders/>}></Route>
@@ -67,6 +66,7 @@ function App() {
           <Route path="message" element={<RequireAdmin><Messages/></RequireAdmin>}></Route>
           
         </Route>
+        <Route path='*' element={<Error/>}/>
       </Routes>
       <ToastContainer />
     </div>

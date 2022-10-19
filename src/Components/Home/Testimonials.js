@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import "swiper/css/bundle";
 import "./Testimonials.css";
-import {  useState } from "react";
+import { useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,31 +10,28 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-
 // import required modules
-import { Pagination ,FreeMode} from "swiper";
-import Loading from '../Shared/Loading';
-import Testimonial from './Testimonial';
+import { Pagination, FreeMode } from "swiper";
+import Loading from "../Shared/Loading";
+import Testimonial from "./Testimonial";
 
 const Testimonials = () => {
-    const [testimonials,setTestimonials] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
 
-    const [loading,setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(()=>{
-        fetch("https://fathomless-coast-84439.herokuapp.com/review")
-        .then(res=>res.json())
-        .then(data=>setTestimonials(data));
-    },[]);
+  useEffect(() => {
+    fetch("https://garden-maker-server.vercel.app/review")
+      .then((res) => res.json())
+      .then((data) => setTestimonials(data));
+  }, []);
 
-
-    return (
-        <div id="testimonials" className=' my-20'>
-            <h1 className='text-4xl text-center text-primary'>Testimonials</h1>
-            <div>
-            <Swiper
-            
-        breakpoints={{
+  return (
+    <div id="testimonials" className=" my-20">
+      <h1 className="text-4xl text-center text-primary">Testimonials</h1>
+      <div>
+        <Swiper
+          breakpoints={{
             // when window width is >= 640px
             // when window width is >= 768px
             640: {
@@ -48,32 +45,30 @@ const Testimonials = () => {
             1080: {
               width: 1080,
               slidesPerView: 3,
-              spaceBetween : 50,
+              spaceBetween: 50,
             },
           }}
-        pagination={{
-          clickable: true,
-        }}
-        loop={true}
-        grabCursor={true}
-        navigation={true}
-            // centeredSlides={true}
-            slidesPerView={1}
-            // spaceBetween={10}
-        modules={[Pagination]}
-        className="mySwiper mx-auto"
-      >
-            {
-            testimonials.map(testimonial=>
-                <SwiperSlide key={testimonial._id}>
-                    <Testimonial testimonial={testimonial}/>
-                </SwiperSlide>
-                )
-            }
+          pagination={{
+            clickable: true,
+          }}
+          loop={true}
+          grabCursor={true}
+          navigation={true}
+          // centeredSlides={true}
+          slidesPerView={1}
+          // spaceBetween={10}
+          modules={[Pagination]}
+          className="mySwiper mx-auto"
+        >
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial._id}>
+              <Testimonial testimonial={testimonial} />
+            </SwiperSlide>
+          ))}
         </Swiper>
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Testimonials;

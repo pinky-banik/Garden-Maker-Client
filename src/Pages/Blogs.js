@@ -3,6 +3,7 @@ import { BiPlayCircle, BiTimeFive } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Components/Shared/Footer';
 import Loading from '../Components/Shared/Loading';
+import Navbar from '../Components/Shared/Navbar';
 import useBlog from '../Hooks/useBlog';
 
 const Blogs = () => {
@@ -24,6 +25,7 @@ const Blogs = () => {
     }
     return (
       <div className='bg-white'>
+        <Navbar/>
         <div className="hero bg-banner" >
             <div className="hero-overlay bg-opacity-80 bg-primary"></div>
                 <div className="hero-content text-center py-36">

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import gardener from '../assets/gif/gardener.gif'
 import Loading from '../Components/Shared/Loading';
 import useToken from '../Hooks/useToken';
+import Navbar from '../Components/Shared/Navbar';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -43,6 +44,8 @@ const Login = () => {
     }
 
     return (
+        <div>
+            <Navbar/>
         <div className='hero min-h-screen bg-base-200 py-20'> 
         <div className="hero-content flex-col lg:flex-row-reverse">
 
@@ -119,6 +122,7 @@ const Login = () => {
          
         </div>
             
+        </div>
         </div>
     );
 };

@@ -6,17 +6,29 @@ import auth from "../../Firebase/Firebase.init";
 import { catagory } from "./Catagory";
 import Loading from "./Loading";
 import logo from "../../assets/logo.png";
-const Navbar = ({ sidebar, menuFilter, setmenuFilter }) => {
+import Swal from "sweetalert2";
+const Navbar = () => {
   const [user, loading] = useAuthState(auth);
   const image = user?.photoURL;
   // console.log(image);
   const navigate = useNavigate();
 
-  const handleSignOut = () => {
-    signOut(auth);
+  const handleSignOut = () =>{
+    Swal.fire({
+      icon: "warning",
+      title: "Are you sure want to logout?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signOut(auth);
+        navigate('/');
+        Swal.fire("Logged Out Successfully!", "", "success");
+      }
+    });
     // localStorage.removeItem('accessToken');
-    navigate("/");
-  };
+  }
+
   if (loading) {
     return <Loading />;
   }
@@ -45,7 +57,7 @@ const Navbar = ({ sidebar, menuFilter, setmenuFilter }) => {
           <div className="dropdown lg:dropdown-end">
             <label tabIndex="0" className="cursor-pointer">
               <div className="avatar px-5 lg:px-0">
-                <div className="w-10 rounded-full ring ring-accent">
+                <div className="w-10 rounded-full ring ring-primary">
                   <img className="object-contain rounded-full" src={image} />
                 </div>
               </div>
@@ -152,12 +164,11 @@ const Navbar = ({ sidebar, menuFilter, setmenuFilter }) => {
     </>
   );
   return (
-    <div className="navbar bg-secondary fixed z-20 flex shadow-lg lg:px-10">
+    <div className="navbar bg-accent fixed z-20 flex shadow-lg lg:px-10">
       <div className="navbar-start">
         <div className="dropdown">
           <label
             tabIndex="0"
-            htmlFor={sidebar ? "" : "dashboard"}
             className="btn btn-ghost lg:hidden"
           >
             <svg
