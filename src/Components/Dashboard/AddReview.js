@@ -24,7 +24,7 @@ const AddReview = () => {
       review: data.review,
       img: user.photoURL,
     };
-    fetch("https://garden-maker-server.vercel.app/review", {
+    fetch("https://fathomless-coast-84439.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

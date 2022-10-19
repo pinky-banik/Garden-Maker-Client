@@ -10,7 +10,7 @@ const Messages = () => {
   const [review, setReview] = useState([]);
   console.log(review);
   useEffect(() => {
-    fetch("https://garden-maker-server.vercel.app/message")
+    fetch("https://fathomless-coast-84439.herokuapp.com/message")
       .then((res) => res.json())
       .then((data) => {
         setReview(data);
@@ -24,7 +24,7 @@ const Messages = () => {
   }
 
   const handleDelete = (id) => {
-    const url = `https://garden-maker-server.vercel.app/message/${id}`;
+    const url = `https://fathomless-coast-84439.herokuapp.com/message/${id}`;
     Swal.fire({
       icon: "warning",
       title: "Are you sure to delete this product?",

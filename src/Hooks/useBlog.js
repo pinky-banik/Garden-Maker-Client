@@ -6,7 +6,7 @@ const useBlog = () => {
   const [blogLoading, setBlogLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://garden-maker-server.vercel.app/blog")
+    fetch("https://fathomless-coast-84439.herokuapp.com/blog")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);

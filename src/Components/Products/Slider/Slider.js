@@ -23,7 +23,7 @@ const Slider = ({ catagory }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/tools/${catagory}`)
+    fetch(`https://fathomless-coast-84439.herokuapp.com/tools/${catagory}`)
       .then((res) => res.json())
       .then((data) => {
         setFilteredProducts(data);

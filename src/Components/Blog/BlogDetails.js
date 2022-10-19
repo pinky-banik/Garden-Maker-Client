@@ -20,7 +20,7 @@ const BlogDetails = () => {
   const { img, title, date, details } = blog;
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/blog/${blogId}`)
+    fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${blogId}`)
       .then((res) => res.json())
       .then((data) => {
         setBlog(data);

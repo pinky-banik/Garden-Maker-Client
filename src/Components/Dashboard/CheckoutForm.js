@@ -18,13 +18,16 @@ const CheckoutForm = ({ order }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://garden-maker-server.vercel.app/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ price }),
-    })
+    fetch(
+      "https://fathomless-coast-84439.herokuapp.com/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -100,7 +103,7 @@ const CheckoutForm = ({ order }) => {
         transectionId: paymentIntent.id,
         date: formattedDate,
       };
-      fetch(`https://garden-maker-server.vercel.app/orders/${_id}`, {
+      fetch(`https://fathomless-coast-84439.herokuapp.com/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

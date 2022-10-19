@@ -17,7 +17,7 @@ const ManageBlogs = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://garden-maker-server.vercel.app/blog")
+    fetch("https://fathomless-coast-84439.herokuapp.com/blog")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
     setLoading(false);
@@ -33,7 +33,7 @@ const ManageBlogs = () => {
   };
 
   // const handleDelete = async id =>{
-  //   await fetch(`https://garden-maker-server.vercel.app/blog/${id}`,{
+  //   await fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${id}`,{
   //     method:'DELETE',
   //   })
   //   .then(res=>res.json())
@@ -49,7 +49,7 @@ const ManageBlogs = () => {
   // }
 
   const handleDelete = (id) => {
-    const url = `https://garden-maker-server.vercel.app/blog/${id}`;
+    const url = `https://fathomless-coast-84439.herokuapp.com/blog/${id}`;
     Swal.fire({
       icon: "warning",
       title: "Are you sure to delete this product?",

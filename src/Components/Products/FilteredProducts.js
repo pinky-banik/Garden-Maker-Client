@@ -12,7 +12,7 @@ const FilteredProducts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/tools/${menuFilter}`)
+    fetch(`https://fathomless-coast-84439.herokuapp.com/tools/${menuFilter}`)
       .then((res) => res.json())
       .then((data) => {
         setFilteredProducts(data);

@@ -23,7 +23,9 @@ const Payment = () => {
   console.log(price);
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/paymentOrder/${paymentId}`)
+    fetch(
+      `https://fathomless-coast-84439.herokuapp.com/paymentOrder/${paymentId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

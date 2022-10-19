@@ -21,7 +21,7 @@ const BlogSlider = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/blog`)
+    fetch(`https://fathomless-coast-84439.herokuapp.com/blog`)
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.filter((item) => item._id !== blogId));

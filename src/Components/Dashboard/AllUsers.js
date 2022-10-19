@@ -11,7 +11,7 @@ const AllUsers = () => {
   // const [openBooking, setBookingOpen] = useState(false);
 
   useEffect(() => {
-    fetch("https://garden-maker-server.vercel.app/user")
+    fetch("https://fathomless-coast-84439.herokuapp.com/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
     setLoading(false);
@@ -27,7 +27,7 @@ const AllUsers = () => {
   //   }
 
   const handleDelete = (id) => {
-    const url = `https://garden-maker-server.vercel.app/user/${id}`;
+    const url = `https://fathomless-coast-84439.herokuapp.com/user/${id}`;
     Swal.fire({
       icon: "warning",
       title: "Are you sure to delete this product?",
@@ -51,7 +51,7 @@ const AllUsers = () => {
   };
 
   const handleMakeAdmin = (email) => {
-    fetch(`https://garden-maker-server.vercel.app/user/admin/${email}`, {
+    fetch(`https://fathomless-coast-84439.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
     })
       .then((res) => res.json())

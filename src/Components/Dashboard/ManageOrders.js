@@ -6,7 +6,7 @@ const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/orders`)
+    fetch(`https://fathomless-coast-84439.herokuapp.com/orders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -15,7 +15,7 @@ const ManageOrders = () => {
   }, [orders]);
 
   const handleDelete = (id) => {
-    const url = `https://garden-maker-server.vercel.app/orders/${id}`;
+    const url = `https://fathomless-coast-84439.herokuapp.com/orders/${id}`;
 
     Swal.fire({
       icon: "warning",

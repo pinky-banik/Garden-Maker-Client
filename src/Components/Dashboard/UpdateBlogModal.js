@@ -44,7 +44,7 @@ const UpdateBlogModal = ({ data, openBooking, setBookingOpen }) => {
       date: data.date || date,
       img: imgUrl || img,
     };
-    await fetch(`https://garden-maker-server.vercel.app/blog/${_id}`, {
+    await fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

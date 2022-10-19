@@ -55,7 +55,7 @@ const UpdateProductModal = ({ data, openBooking, setBookingOpen }) => {
       catagory: data.catagory || catagory,
       img: imgUrl || img,
     };
-    await fetch(`https://garden-maker-server.vercel.app/tools/${_id}`, {
+    await fetch(`https://fathomless-coast-84439.herokuapp.com/tools/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

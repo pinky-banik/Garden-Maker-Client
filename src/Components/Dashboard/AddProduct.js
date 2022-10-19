@@ -44,7 +44,7 @@ const AddProduct = () => {
       catagory: data.catagory,
       img: img,
     };
-    await fetch("https://garden-maker-server.vercel.app/tools", {
+    await fetch("https://fathomless-coast-84439.herokuapp.com/tools", {
       method: "POST",
       headers: {
         "content-type": "application/json",

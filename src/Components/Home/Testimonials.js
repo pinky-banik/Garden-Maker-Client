@@ -21,7 +21,7 @@ const Testimonials = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://garden-maker-server.vercel.app/review")
+    fetch("https://fathomless-coast-84439.herokuapp.com/review")
       .then((res) => res.json())
       .then((data) => setTestimonials(data));
   }, []);

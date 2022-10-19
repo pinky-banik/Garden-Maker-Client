@@ -14,7 +14,7 @@ const MyOrders = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/orders/${email}`)
+    fetch(`https://fathomless-coast-84439.herokuapp.com/orders/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -23,7 +23,7 @@ const MyOrders = () => {
   }, [email]);
 
   const handleDelete = (id) => {
-    const url = `https://garden-maker-server.vercel.app/orders/${id}`;
+    const url = `https://fathomless-coast-84439.herokuapp.com/orders/${id}`;
 
     Swal.fire({
       icon: "warning",
@@ -47,7 +47,7 @@ const MyOrders = () => {
     });
   };
   const handlePayment = (id) => {
-    const url = `https://garden-maker-server.vercel.app/orders/${id}`;
+    const url = `https://fathomless-coast-84439.herokuapp.com/orders/${id}`;
 
     Swal.fire({
       icon: "warning",

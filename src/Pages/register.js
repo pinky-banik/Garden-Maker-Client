@@ -85,13 +85,16 @@ const Register = () => {
       name: data.name,
       img: img,
     };
-    await fetch(`https://garden-maker-server.vercel.app/user/${data.email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(currentUser),
-    })
+    await fetch(
+      `https://fathomless-coast-84439.herokuapp.com/user/${data.email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log('data inside useToken',data);

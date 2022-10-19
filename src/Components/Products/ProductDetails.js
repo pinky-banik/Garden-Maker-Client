@@ -36,7 +36,7 @@ const ProductDetails = () => {
     const fetchData = async () => {
       // setLoading(true);
       fetch(
-        `https://garden-maker-server.vercel.app/orders/email/productName?email=${email}&productName=${filter}`
+        `https://fathomless-coast-84439.herokuapp.com/orders/email/productName?email=${email}&productName=${filter}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -46,7 +46,7 @@ const ProductDetails = () => {
         });
 
       await fetch(
-        `https://garden-maker-server.vercel.app/tools/product/${filter}`
+        `https://fathomless-coast-84439.herokuapp.com/tools/product/${filter}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -138,7 +138,7 @@ const ProductDetails = () => {
       paymentStatus: "incomplete",
     };
     await fetch(
-      `https://garden-maker-server.vercel.app/orders?email=${email}&productName=${name}`,
+      `https://fathomless-coast-84439.herokuapp.com/orders?email=${email}&productName=${name}`,
       {
         method: "PUT",
         headers: {

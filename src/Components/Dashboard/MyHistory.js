@@ -13,7 +13,7 @@ const MyHistory = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://garden-maker-server.vercel.app/myhistory/${email}`)
+    fetch(`https://fathomless-coast-84439.herokuapp.com/myhistory/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -22,7 +22,7 @@ const MyHistory = () => {
   }, [email]);
 
   const handleDelete = (id) => {
-    const url = `https://garden-maker-server.vercel.app/history/${id}`;
+    const url = `https://fathomless-coast-84439.herokuapp.com/history/${id}`;
 
     Swal.fire({
       icon: "warning",
