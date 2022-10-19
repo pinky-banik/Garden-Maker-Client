@@ -8,7 +8,7 @@ import { AiOutlineFieldTime, AiOutlineHistory, AiOutlineHome, AiOutlineShopping 
 import {MdOutlineRateReview} from 'react-icons/md';
 import {BsCardChecklist} from 'react-icons/bs';
 import {HiOutlineUserGroup} from 'react-icons/hi';
-import {BsUiChecks,BsVectorPen,BsBasket} from 'react-icons/bs';
+import {BsUiChecks,BsVectorPen} from 'react-icons/bs';
 import {RiFileEditLine,RiMessage2Line,RiShoppingBasketFill} from 'react-icons/ri';
 import {FiPlusSquare} from 'react-icons/fi';
 

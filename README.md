@@ -23,7 +23,7 @@
    * React Spinners
    * Bootstrap
    * FontAwesome
-   *ETC
+   * ETC
 
 # Back-end Technology
 
@@ -35,4 +35,4 @@
    * Cors
    * Dotenv
    * nodemon
-   *etc
+   * etc

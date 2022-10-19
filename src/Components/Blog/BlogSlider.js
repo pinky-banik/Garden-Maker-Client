@@ -89,7 +89,7 @@ const BlogSlider = () => {
                             {blog.title}
                         </div>
                         
-                        <p className="text-gray-700 text-base">
+                        <p className="text-gray-700 text-base line-clamp-5">
                         {blog.details}
                         </p>
                     </div>

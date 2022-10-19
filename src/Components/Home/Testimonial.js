@@ -43,7 +43,7 @@ const Testimonial = ({testimonial}) => {
         </div>
         </div>
         <div className="card-body">
-            <p className='text-start'>{review}</p>
+            <p className='text-start line-clamp-3'>{review}</p>
              <div className='flex text-2xl py-2 text-primary'>
             <Rating
                     initialRating={rating}

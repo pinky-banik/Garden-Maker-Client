@@ -73,7 +73,7 @@ const BlogsHome = () => {
                             {blog.title}
                         </div>
                         
-                        <p className="text-gray-700 text-base">
+                        <p className="text-gray-700 text-base line-clamp-3">
                         {blog.details}
                         </p>
                     </div>

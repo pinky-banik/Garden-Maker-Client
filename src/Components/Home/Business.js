@@ -18,25 +18,25 @@ const Business = () => {
                     <div className='text-center py-10'>
                         <h1><AiOutlineFlag className='text-5xl my-2  mx-auto text-accent'/></h1>
                         <div className='border border-accent round-2xl w-7 mx-auto mb-5'></div>
-                        <h1 className='md:text-4xl text-2xl'>72</h1>
+                        <h1 className='md:text-4xl text-2xl font-bold'>72</h1>
                         <p className='text-accent'>countries</p>
                     </div>
                     <div className='text-center py-10'>
                         <h1><AiOutlineFundProjectionScreen className='text-5xl my-2  mx-auto text-accent'/></h1>
                         <div className='border border-accent round-2xl w-7 mx-auto mb-5'></div>
-                        <h1 className='md:text-4xl text-2xl'>535+</h1>
+                        <h1 className='md:text-4xl text-2xl font-bold '>535+</h1>
                         <p className='text-accent'>Complete Projects</p>
                     </div>
                     <div className='text-center py-10'>
                         <h1><HiOutlineUserGroup className='text-5xl my-2  mx-auto text-accent'/></h1>
                         <div className='border border-accent round-2xl w-7 mx-auto mb-5'></div>
-                        <h1 className='md:text-4xl text-2xl'>273+</h1>
+                        <h1 className='md:text-4xl text-2xl font-bold'>273+</h1>
                         <p className='text-accent'>Happy Clients</p>
                     </div>
                     <div className='text-center py-10'>
                         <h1><BsHandThumbsUp className='text-5xl my-2  mx-auto text-accent'/></h1>
                         <div className='border border-accent round-2xl w-7 mx-auto mb-5'></div>
-                        <h1 className='md:text-4xl text-2xl'>432+</h1>
+                        <h1 className='md:text-4xl text-2xl font-bold'>432+</h1>
                         <p className='text-accent'>FeedBacks</p>
                     </div>
                 </div>

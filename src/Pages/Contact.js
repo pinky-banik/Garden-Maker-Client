@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from './../Firebase/Firebase.init';
 import Loading from './../Components/Shared/Loading';
-import Footer from '../Components/Shared/Footer';
 
 const Contact = () => {
     const [user] = useAuthState(auth);

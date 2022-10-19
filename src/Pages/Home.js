@@ -8,8 +8,6 @@ import Testimonials from '../Components/Home/Testimonials';
 import Footer from '../Components/Shared/Footer';
 
 const Home = () => {
-    const date = new Date();
-    // console.log(date);
     
     return (
 
