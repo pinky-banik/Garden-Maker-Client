@@ -3,6 +3,7 @@ import Moment from 'moment';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
+import image from '../../assets/bg.jpg';
 
 const CreateBlog = () => {
     const [loading,setLoading] = useState(false);
@@ -17,7 +18,7 @@ const CreateBlog = () => {
     const onSubmit = async data => {
         setLoading(true);
         const image= data.image[0];
-        const url = `https://api.imgbb.com/1/upload?=${imgStorageKey}`;
+        const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
         let img;
         const formData = new  FormData(); //this thing is coming from uploading a file.. mozila cdn docs
         formData.append('image',image);

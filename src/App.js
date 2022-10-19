@@ -52,10 +52,10 @@ function App() {
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/blogDetails/:blogId' element={<BlogDetails/>}/>
         <Route path="/dashboard" element={<RequireAuth><Dashboard setSidebar={setSidebar}/></RequireAuth>} >
+         <Route path="addReview" element={<AddReview/>}></Route>
           <Route index element={<AddProduct/>}></Route>
           <Route path="myOrders" element={<MyOrders/>}></Route>
           <Route path="manageOrders" element={<RequireAdmin><ManageOrders/></RequireAdmin>}></Route>
-          <Route path="addReview" element={<AddReview/>}></Route>
           <Route path="addProduct" element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
           <Route path="allProducts" element={<RequireAdmin><AllProduct/></RequireAdmin>}></Route>
           <Route path="allUsers" element={<RequireAdmin><AllUsers/></RequireAdmin>}></Route>
@@ -63,7 +63,7 @@ function App() {
           <Route path="createBlog" element={<RequireAdmin><CreateBlog/></RequireAdmin>}></Route>
           <Route path="manageBlog" element={<RequireAdmin><ManageBlogs/></RequireAdmin>}></Route>
           <Route path="history" element={<RequireAdmin><AllHistory/></RequireAdmin>}></Route>
-          <Route path="myhistory" element={<RequireAdmin><MyHistory/></RequireAdmin>}></Route>
+          <Route path="myhistory" element={<MyHistory/>}></Route>
           <Route path="message" element={<RequireAdmin><Messages/></RequireAdmin>}></Route>
           
         </Route>
