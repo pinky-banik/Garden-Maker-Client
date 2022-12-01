@@ -50,11 +50,11 @@ const Navbar = () => {
       {user?.uid ? (
         <div className="lg:flex justify-center items-center">
           <div>
-            <h1 className="p-2 font-bold text-accent lg:text-white px-4">
+            <h1 className="p-2 font-bold  lg:text-primary px-4 ">
               {user?.displayName}
             </h1>
           </div>
-          <div className="dropdown lg:dropdown-end">
+          <div className="dropdown lg:dropdown-end text-black">
             <label tabIndex="0" className="cursor-pointer">
               <div className="avatar px-5 lg:px-0">
                 <div className="w-10 rounded-full ring ring-primary">
@@ -164,7 +164,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-accent fixed z-20 flex shadow-lg lg:px-10">
+    <div className="navbar bg-accent fixed z-20 flex shadow-lg lg:px-28 ">
       <div className="navbar-start">
         <div className="dropdown">
           <label
@@ -198,7 +198,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* large device */}
-      <div className="navbar-end lg:flex hidden">
+      <div className="navbar-end lg:flex hidden text-white">
         <ul className="menu menu-horizontal p-0 ">{menuItemslg}</ul>
       </div>
     </div>

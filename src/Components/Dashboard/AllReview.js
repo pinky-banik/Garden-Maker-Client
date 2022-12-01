@@ -5,10 +5,14 @@ import { RiDeleteBin2Fill } from "react-icons/ri";
 import { AiFillStar } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import Swal from "sweetalert2";
+import ReviewShowModal from "./ReviewShowModal";
 
 const AllReview = () => {
   const [loading, setLoading] = useState(true);
   const [review, setReview] = useState([]);
+  const [reviewShow,setReviewShow] = useState('');
+  const [selectedBlog, setSelectedBlog] = useState({});
+  const [openBooking, setBookingOpen] = useState(false);
 
   useEffect(() => {
     fetch("https://fathomless-coast-84439.herokuapp.com/review")
@@ -44,10 +48,14 @@ const AllReview = () => {
       }
     });
   };
+  const handleId = async (review) => {
+    setSelectedBlog(review);
+    setBookingOpen(true);
+  };
 
   return (
     <div>
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full mb-20">
         <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
@@ -81,38 +89,35 @@ const AllReview = () => {
                   </div>
                 </td>
 
-                <th>
+                
+
+                <td>
                   <label
-                    htmlFor="my-modal-3"
-                    className=" modal-button text-blue-500 text-2xl "
+                    onClick={() => handleId(review)}
+                    htmlFor="reviewShowModal"
+                    className="text-blue-500 text-2xl cursor-pointer"
                   >
-                    <AiFillEye className="" />
+                    <AiFillEye />
                   </label>
-                  <input
-                    type="checkbox"
-                    id="my-modal-3"
-                    className="modal-toggle"
-                  />
-                  <div className="modal">
-                    <div className="modal-box relative w-96">
-                      <label
-                        htmlFor="my-modal-3"
-                        className="btn btn-sm btn-circle absolute right-2 top-2"
-                      >
-                        ✕
-                      </label>
-                      <p>{review.review}</p>
-                    </div>
-                  </div>
-                </th>
-                <th>
+                  {
+                    <ReviewShowModal
+                      data={selectedBlog}
+                      openBooking={openBooking}
+                      setBookingOpen={setBookingOpen}
+                    />
+                  }
+                </td>
+
+
+
+                <td>
                   <button
                     onClick={() => handleDelete(review._id)}
                     className="text-red-500 text-2xl"
                   >
                     <RiDeleteBin2Fill />
                   </button>
-                </th>
+                </td>
               </tr>
             ))}
           </tbody>

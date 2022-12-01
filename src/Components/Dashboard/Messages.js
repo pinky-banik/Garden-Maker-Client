@@ -4,10 +4,13 @@ import { toast } from "react-toastify";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { AiFillEye } from "react-icons/ai";
 import Swal from "sweetalert2";
+import MessageShowModal from "./MessageShowModal";
 
 const Messages = () => {
   const [loading, setLoading] = useState(true);
   const [review, setReview] = useState([]);
+  const [selectedBlog, setSelectedBlog] = useState({});
+  const [openBooking, setBookingOpen] = useState(false);
   console.log(review);
   useEffect(() => {
     fetch("https://fathomless-coast-84439.herokuapp.com/message")
@@ -47,6 +50,12 @@ const Messages = () => {
     });
   };
 
+
+  const handleId = async (review) => {
+    setSelectedBlog(review);
+    setBookingOpen(true);
+  };
+
   return (
     <div>
       <div className="overflow-x-auto w-full">
@@ -78,30 +87,22 @@ const Messages = () => {
                 <td>{review.lastName}</td>
                 <td>{review.email}</td>
 
-                <th>
+                <td>
                   <label
-                    htmlFor="my-modal-3"
-                    className=" modal-button text-blue-500 text-2xl "
+                    onClick={() => handleId(review)}
+                    htmlFor="reviewShowModal"
+                    className="text-blue-500 text-2xl cursor-pointer"
                   >
-                    <AiFillEye className="" />
+                    <AiFillEye />
                   </label>
-                  <input
-                    type="checkbox"
-                    id="my-modal-3"
-                    className="modal-toggle"
-                  />
-                  <div className="modal">
-                    <div className="modal-box relative w-96">
-                      <label
-                        htmlFor="my-modal-3"
-                        className="btn btn-sm btn-circle absolute right-2 top-2"
-                      >
-                        ✕
-                      </label>
-                      <p>{review.message}</p>
-                    </div>
-                  </div>
-                </th>
+                  {
+                    <MessageShowModal
+                      data={selectedBlog}
+                      openBooking={openBooking}
+                      setBookingOpen={setBookingOpen}
+                    />
+                  }
+                </td>
                 <th>
                   <button
                     onClick={() => handleDelete(review._id)}

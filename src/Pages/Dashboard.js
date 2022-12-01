@@ -23,7 +23,6 @@ import { FiPlusSquare } from "react-icons/fi";
 import Swal from "sweetalert2";
 import logo from "../assets/logo.png";
 
-
 const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
@@ -70,8 +69,8 @@ const Dashboard = () => {
               />
             </svg>
           </label>
-          <Link to="/" className="normal-case text-xl ">
-            <img className="h-12 " src={logo} alt="Jerin's Parlour" />
+          <Link to="/" className="normal-case text-xl flex items-center ">
+            <img className="w-10 h-10 mr-2" src={logo} alt="" /> Garden Maker
           </Link>
         </div>
         <div className="hidden sm:block">

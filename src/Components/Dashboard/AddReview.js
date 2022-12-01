@@ -46,9 +46,9 @@ const AddReview = () => {
   return (
     <div className="flex justify-center items-center p-10  rounded min-h-screen py-10">
       <div>
-        <h2 className="text-2xl text-primary">Add a Review</h2>
+        <h2 className="text-2xl text-primary sm:w-72">Add a Review </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Photo</span>
             </label>
@@ -60,11 +60,11 @@ const AddReview = () => {
             <input
               value={user?.photoURL}
               type="text"
-              className="p-3 hidden border-2 rounded-xl w-full max-w-xs focus:outline-none"
+              className="p-3 hidden border-2 rounded-xl w-full   focus:outline-none"
             />
           </div>
 
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full =">
             <label className="label">
               <span className="label-text">Your Name</span>
             </label>
@@ -72,7 +72,7 @@ const AddReview = () => {
               type="text"
               value={user.displayName}
               placeholder="Product Name"
-              className="input input-bordered w-full max-w-xs focus:outline-none"
+              className="input input-bordered w-full   focus:outline-none"
               disabled
             />
             <label className="label">
@@ -83,7 +83,7 @@ const AddReview = () => {
               )}
             </label>
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full  ">
             <label className="label">
               <span className="label-text">Your Name</span>
             </label>
@@ -91,7 +91,7 @@ const AddReview = () => {
               type="email"
               value={user.email}
               placeholder="Your email"
-              className="input input-bordered w-full max-w-xs focus:outline-none"
+              className="input input-bordered w-full   focus:outline-none"
               disabled
             />
             <label className="label">
@@ -102,7 +102,7 @@ const AddReview = () => {
               )}
             </label>
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full  ">
             <label className="label">
               <span className="label-text">Rating</span>
             </label>
@@ -111,7 +111,7 @@ const AddReview = () => {
               min="1"
               max="5"
               placeholder="Rating"
-              className="input input-bordered w-full max-w-xs focus:outline-none"
+              className="input input-bordered w-full   focus:outline-none"
               {...register("rating", {
                 required: {
                   value: true,
@@ -127,14 +127,14 @@ const AddReview = () => {
               )}
             </label>
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full  ">
             <label className="label">
               <span className="label-text">Your review</span>
             </label>
             <textarea
               type="text"
               placeholder="Share your experience with us"
-              className="input input-bordered w-full max-w-xs focus:outline-none  h-20"
+              className="input input-bordered w-full   focus:outline-none  h-20"
               {...register("review", {
                 required: {
                   value: true,
@@ -151,7 +151,7 @@ const AddReview = () => {
             </label>
           </div>
           <input
-            className="btn btn-primary w-full max-w-xs text-white my-3"
+            className="btn btn-primary w-full   text-white my-3"
             type="submit"
             value="Add a Review"
           />

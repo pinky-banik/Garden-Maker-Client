@@ -10,6 +10,7 @@ import Footer from "../Shared/Footer";
 import { toast } from "react-toastify";
 import { isEmpty } from "@firebase/util";
 import swal from "sweetalert";
+import Navbar from "../Shared/Navbar";
 const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
 
@@ -184,7 +185,9 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="pt-20 bg-white">
+    <div>
+      <Navbar/>
+      <div className="pt-10 bg-white">
       <div className="">
         <div className="max-w-screen-xl mx-auto px-6 my-16 py-16 flex flex-col justify-center items-center ">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
@@ -260,6 +263,7 @@ const ProductDetails = () => {
         <Slider catagory={product.catagory} />
       </div>
       <Footer />
+    </div>
     </div>
   );
 };

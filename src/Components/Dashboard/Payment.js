@@ -41,7 +41,9 @@ const Payment = () => {
   return (
     <div>
       <Navbar />
+      <h1 className="font-extrabold underline text-4xl pt-20  text-center text-primary">Pay With Stripe</h1>
       <div className="flex justify-center items-center">
+        
         <div className="pt-20 w-50 sm:w-96 mx-10 ">
           <div className="py-3 my-2 bg-gray-100 w-full p-5">
             <h1>{user.displayName}</h1>

@@ -62,7 +62,7 @@ const AllUsers = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full pb-20">
         <table className="table w-full">
           {/* <!-- head --> */}
           <thead>

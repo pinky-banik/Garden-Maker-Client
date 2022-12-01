@@ -5,6 +5,7 @@ import Footer from "../Shared/Footer";
 import Loading from "../Shared/Loading";
 import BlogSlider from "./BlogSlider";
 import blogCover from "../../assets/blogcover.webp";
+import Navbar from "../Shared/Navbar";
 
 const BlogDetails = () => {
   const [blog, setBlog] = useState([]);
@@ -20,7 +21,7 @@ const BlogDetails = () => {
   const { img, title, date, details } = blog;
 
   useEffect(() => {
-    fetch(`https://fathomless-coast-84439.herokuapp.com/blog/${blogId}`)
+    fetch(`https://garden-maker-server.vercel.app/blog/${blogId}`)
       .then((res) => res.json())
       .then((data) => {
         setBlog(data);
@@ -32,7 +33,9 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="pt-18 ">
+    <div>
+      <Navbar/>
+      <div className="pt-18 ">
       <div className="hero " style={{ backgroundImage: `url('${blogCover}')` }}>
         <div className="hero-overlay bg-opacity-80 bg-primary"></div>
         <div className="hero-content text-center py-36">
@@ -70,6 +73,7 @@ const BlogDetails = () => {
 
       <BlogSlider />
       <Footer />
+    </div>
     </div>
   );
 };
